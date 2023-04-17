@@ -27,7 +27,12 @@ public class ZombieAi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(playerObj.transform.position,this.transform.position) < sightDist)
+        if (health <= 0)
+        {
+            GameManager.instance.enemies.Remove(this.gameObject);
+            Destroy(this.gameObject);
+        }
+            if (Vector3.Distance(playerObj.transform.position,this.transform.position) < sightDist)
         {
             RaycastHit hit;
             Vector3 dir = playerObj.transform.position - this.transform.position;

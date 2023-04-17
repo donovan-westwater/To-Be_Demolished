@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject[] spawnPoints;
+    public GameObject[] placables;
+    public Sprite[] icons;
+    public Image curIcon;
+    public Text placeAmount;
     public GameObject zombiePrefab;
     public GameObject player;
     public GameObject gameOver;
@@ -16,6 +20,10 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public float health = 100f;
     public float buildingHealth = 1000f;
+    public List<GameObject> enemies;
+    private int[] inventory = { 1, 0 };
+    int currentIndex = 0;
+    GameObject curPlacable;
     float ctime = 0f;
     float timer = 4f;
     // Start is called before the first frame update
@@ -25,6 +33,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        enemies = new List<GameObject>();
         Time.timeScale = 1;
         gameOver.gameObject.SetActive(false);
     }
@@ -48,9 +57,59 @@ public class GameManager : MonoBehaviour
             zombiePrefab.SetActive(true);
             foreach (GameObject s in spawnPoints)
             {
-                GameObject.Instantiate(zombiePrefab, s.transform.position,s.transform.rotation);
+                GameObject g = GameObject.Instantiate(zombiePrefab, s.transform.position,s.transform.rotation);
+                enemies.Add(g);
             }
             zombiePrefab.SetActive(false);
+        }
+        InputCheck();
+    }
+    void InputCheck()
+    {
+        placeAmount.text = "" + inventory[currentIndex];
+        curIcon.sprite = icons[currentIndex];
+        if(inventory[currentIndex] > 0)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                curPlacable = GameObject.Instantiate(placables[currentIndex]);
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                inventory[currentIndex]--;
+                if (inventory[currentIndex] <= 0) inventory[currentIndex] = 0;
+                curPlacable = null;
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                Destroy(curPlacable);
+                curPlacable = null;
+            }
+        }
+        
+        if(curPlacable != null)
+        {
+            Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if(Physics.Raycast(r,out hit))
+            {
+                curPlacable.transform.position = hit.point;
+                curPlacable.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+            }
+            if (Input.GetKey(KeyCode.E))
+            {
+                curPlacable.transform.Rotate(Vector3.up, 10f);
+            }else if (Input.GetKey(KeyCode.Q))
+            {
+                curPlacable.transform.Rotate(Vector3.up, -10f);
+            }
+        }
+        else
+        {
+            if (Input.mouseScrollDelta.y > 0) currentIndex++;
+            if (Input.mouseScrollDelta.y < 0) currentIndex--;
+            if (currentIndex < 0) currentIndex = 0;
+            if (currentIndex >= inventory.Length) currentIndex = inventory.Length - 1;
         }
     }
     public void Restart()
