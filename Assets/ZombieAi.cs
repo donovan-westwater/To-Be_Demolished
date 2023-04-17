@@ -55,7 +55,7 @@ public class ZombieAi : MonoBehaviour
                 Vector3 dir = testBuildingObj.transform.position - this.transform.position;
                 if (Physics.Raycast(this.transform.position, dir.normalized, out hit, zombieAgent.radius+0.1f))
                 {
-                    Debug.Log("Attacking the Building");
+                    GameManager.instance.buildingHealth -= 1f;
                 }
             }
         }
@@ -65,7 +65,7 @@ public class ZombieAi : MonoBehaviour
     {
         if (collision.collider.tag.Equals("Player"))
         {
-            Debug.Log("Attacking the player!");
+            GameManager.instance.health -= 1f;
         }
     }
 }
