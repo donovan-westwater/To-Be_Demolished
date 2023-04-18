@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Buildings
   - Enemy
+  - Currency
   layers:
   - Default
   - TransparentFX

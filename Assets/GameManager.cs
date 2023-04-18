@@ -16,16 +16,19 @@ public class GameManager : MonoBehaviour
     public GameObject gameOver;
     public Text healthText;
     public Text buildingHealthText;
+    public Text ectoAmountText;
     public static GameManager instance;
     [HideInInspector]
     public float health = 100f;
     public float buildingHealth = 1000f;
+    public float ectoAmount = 0;
     public List<GameObject> enemies;
-    private int[] inventory = { 1, 0 };
+    private int[] inventory = { 1, 1 };
     int currentIndex = 0;
     GameObject curPlacable;
     float ctime = 0f;
     float timer = 4f;
+    float rotAngle = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         buildingHealthText.text = "Building Health: " + buildingHealth;
         healthText.text = "Health: " + health;
+        ectoAmountText.text = "Ecto: " + ectoAmount;
         if (health <= 0 || buildingHealth <= 0)
         {
             gameOver.SetActive(true);
@@ -73,11 +77,13 @@ public class GameManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 curPlacable = GameObject.Instantiate(placables[currentIndex]);
+                curPlacable.GetComponent<MonoBehaviour>().enabled = false;
             }
             else if (Input.GetMouseButtonUp(0))
             {
                 inventory[currentIndex]--;
                 if (inventory[currentIndex] <= 0) inventory[currentIndex] = 0;
+                curPlacable.GetComponent<MonoBehaviour>().enabled = true;
                 curPlacable = null;
             }
             if (Input.GetMouseButtonDown(1))
@@ -95,14 +101,16 @@ public class GameManager : MonoBehaviour
             {
                 curPlacable.transform.position = hit.point;
                 curPlacable.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+                curPlacable.transform.Rotate(Vector3.up, rotAngle);
             }
             if (Input.GetKey(KeyCode.E))
             {
-                curPlacable.transform.Rotate(Vector3.up, 10f);
+                rotAngle += 40f*Time.deltaTime;
             }else if (Input.GetKey(KeyCode.Q))
             {
-                curPlacable.transform.Rotate(Vector3.up, -10f);
+                rotAngle -= 40f * Time.deltaTime;
             }
+            
         }
         else
         {

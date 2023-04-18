@@ -48,4 +48,8 @@ public class Turret : MonoBehaviour
             if (curTarget.GetComponent<ZombieAi>().health <= 0) curTarget = null;
         }
     }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Enemy")) health -= 1;
+    }
 }

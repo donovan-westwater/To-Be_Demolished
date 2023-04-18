@@ -8,6 +8,7 @@ public class ZombieAi : MonoBehaviour
     public float health = 100f;
     public float sightDist = 10f;
     public GameObject testBuildingObj;
+    public GameObject ecoPrefab;
     private NavMeshAgent zombieAgent;
     private GameObject playerObj;
     enum ZombieStates
@@ -27,10 +28,13 @@ public class ZombieAi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!zombieAgent.isOnNavMesh || !zombieAgent.isActiveAndEnabled) return;
         if (health <= 0)
         {
             GameManager.instance.enemies.Remove(this.gameObject);
+            GameObject.Instantiate(ecoPrefab, this.transform.position, this.transform.rotation);
             Destroy(this.gameObject);
+            return;
         }
             if (Vector3.Distance(playerObj.transform.position,this.transform.position) < sightDist)
         {
