@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public GameObject zombiePrefab;
     public GameObject player;
     public GameObject gameOver;
+    //UI
+    public GameObject menu;
     public Text healthText;
     public Text buildingHealthText;
     public Text ectoAmountText;
@@ -23,12 +25,13 @@ public class GameManager : MonoBehaviour
     public float buildingHealth = 1000f;
     public float ectoAmount = 0;
     public List<GameObject> enemies;
-    private int[] inventory = { 1, 1 };
+    public int[] inventory = { 1, 1 };
     int currentIndex = 0;
     GameObject curPlacable;
     float ctime = 0f;
     float timer = 4f;
     float rotAngle = 0;
+    bool menuMode = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,16 +42,20 @@ public class GameManager : MonoBehaviour
         enemies = new List<GameObject>();
         Time.timeScale = 1;
         gameOver.gameObject.SetActive(false);
+        menu.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         buildingHealthText.text = "Building Health: " + buildingHealth;
         healthText.text = "Health: " + health;
         ectoAmountText.text = "Ecto: " + ectoAmount;
         if (health <= 0 || buildingHealth <= 0)
         {
+            menu.SetActive(false);
+            menuMode = false;
             gameOver.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
@@ -65,6 +72,17 @@ public class GameManager : MonoBehaviour
                 enemies.Add(g);
             }
             zombiePrefab.SetActive(false);
+        }
+        if (menuMode)
+        {
+
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                menuMode = false;
+                menu.SetActive(false);
+            }
+            return;
         }
         InputCheck();
     }
@@ -91,6 +109,7 @@ public class GameManager : MonoBehaviour
                 Destroy(curPlacable);
                 curPlacable = null;
             }
+            
         }
         
         if(curPlacable != null)
@@ -114,11 +133,30 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            
             if (Input.mouseScrollDelta.y > 0) currentIndex++;
             if (Input.mouseScrollDelta.y < 0) currentIndex--;
             if (currentIndex < 0) currentIndex = 0;
             if (currentIndex >= inventory.Length) currentIndex = inventory.Length - 1;
         }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            menuMode = true;
+            menu.SetActive(true);
+        }
+    }
+    public void BuyTurret()
+    {
+        if (ectoAmount < 10) return;
+        inventory[0]++;
+        ectoAmount -= 10;
+    }
+    public void BuyBarricade()
+    {
+        if (ectoAmount < 5) return;
+        inventory[1]++;
+        ectoAmount -= 5;
     }
     public void Restart()
     {

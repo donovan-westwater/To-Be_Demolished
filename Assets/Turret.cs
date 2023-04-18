@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Placables should have a base class to derive from!
 public class Turret : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -46,6 +47,16 @@ public class Turret : MonoBehaviour
             GameObject b = GameObject.Instantiate(bullet, head.transform.position, this.transform.GetChild(0).transform.rotation);
             b.GetComponent<Bullet>().dir = dir.normalized;
             if (curTarget.GetComponent<ZombieAi>().health <= 0) curTarget = null;
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if(Vector3.Distance(this.transform.position,GameManager.instance.player.transform.position) < 3f)
+            {
+                GameManager.instance.inventory[0]++;
+                Destroy(this.gameObject);
+            }
+            
+
         }
     }
     private void OnCollisionStay(Collision collision)

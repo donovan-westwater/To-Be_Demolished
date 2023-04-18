@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5956762250259705856}
   m_Layer: 2
   m_Name: Barricade
-  m_TagString: Untagged
+  m_TagString: Placable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -9,6 +9,16 @@ public class Barricade : MonoBehaviour
     private void Update()
     {
         if (health <= 0) Destroy(this.gameObject);
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (Vector3.Distance(this.transform.position, GameManager.instance.player.transform.position) < 3f)
+            {
+                GameManager.instance.inventory[1]++;
+                Destroy(this.gameObject);
+            }
+
+
+        }
     }
     private void OnCollisionStay(Collision collision)
     {
