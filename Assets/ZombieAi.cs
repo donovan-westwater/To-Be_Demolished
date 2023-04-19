@@ -7,7 +7,7 @@ public class ZombieAi : MonoBehaviour
 {
     public float health = 100f;
     public float sightDist = 10f;
-    public GameObject testBuildingObj;
+    public GameObject targetBuildingObj;
     public GameObject ecoPrefab;
     private NavMeshAgent zombieAgent;
     private GameObject playerObj;
@@ -20,9 +20,10 @@ public class ZombieAi : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        targetBuildingObj = GameManager.instance.curTarget;
         playerObj = GameObject.FindGameObjectWithTag("Player");
         zombieAgent = this.GetComponent<NavMeshAgent>();
-        zombieAgent.destination = testBuildingObj.transform.position;
+        zombieAgent.destination = targetBuildingObj.transform.position;
     }
 
     // Update is called once per frame
@@ -49,27 +50,27 @@ public class ZombieAi : MonoBehaviour
                 }
                 else
                 {
-                    zombieAgent.destination = testBuildingObj.transform.position;
+                    zombieAgent.destination = targetBuildingObj.transform.position;
                     curState = ZombieStates.Building;
                 }
             }
             else
             {
-                zombieAgent.destination = testBuildingObj.transform.position;
+                zombieAgent.destination = targetBuildingObj.transform.position;
                 curState = ZombieStates.Building;
             }
         }
         
         if (curState == ZombieStates.Building)
         {
-            float d = Vector3.Distance(testBuildingObj.transform.position, this.transform.position);
+            float d = Vector3.Distance(targetBuildingObj.transform.position, this.transform.position);
             if (d < 30f)
             {
                 RaycastHit hit;
-                Vector3 dir = testBuildingObj.transform.position - this.transform.position;
+                Vector3 dir = targetBuildingObj.transform.position - this.transform.position;
                 if (Physics.Raycast(this.transform.position, dir.normalized, out hit, zombieAgent.radius+0.1f))
                 {
-                    if (hit.collider.gameObject.Equals(testBuildingObj))
+                    if (hit.collider.gameObject.Equals(targetBuildingObj))
                     {
                         GameManager.instance.buildingHealth -= 1f;
                     }

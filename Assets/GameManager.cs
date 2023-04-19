@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOver;
     public GameObject endstate;
     //UI
+    public GameObject radioObject;
     public GameObject menu;
     public Text healthText;
     public Text buildingHealthText;
@@ -32,31 +33,47 @@ public class GameManager : MonoBehaviour
     int currentIndex = 0;
     GameObject curPlacable;
     //Wave System
+    public float searchTime = 30f;
     public float timeBetweenSpawns = 1f;
-    public float timeBetweenWaves = 60f;
+    public float timeBetweenWaves = 30f;
     public Array2DInt numOfEneimesEachWave;
+    [HideInInspector]
+    public bool radioOn = false;
     bool[] emptyCheck;
-    //public static List<TargetBuilding> targets; 
+    [HideInInspector]
+    public static List<TargetBuilding> targets; 
+    //[HideInInspector]
+    public GameObject curTarget;
     float ctime = 0f;
     float stime = 0f;
+    float btime = 0f;
     int currentWave = -1;
     int spawnPointAvaliable = 0;
     float rotAngle = 0;
     bool spawnMode = false;
     bool menuMode = false;
+    //bool waveMode = true;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
+            targets = new List<TargetBuilding>();
         }
+    }
+    void Start()
+    {
+        
         enemies = new List<GameObject>();
         
         Time.timeScale = 1;
         gameOver.gameObject.SetActive(false);
         endstate.gameObject.SetActive(false);
+        radioObject.SetActive(false);
         menu.SetActive(false);
+        //Randomly Select New Target
+        curTarget.GetComponent<TargetBuilding>().isTarget = true;
     }
 
     // Update is called once per frame
@@ -86,6 +103,21 @@ public class GameManager : MonoBehaviour
         }
         ctime += Time.deltaTime;
         stime += Time.deltaTime;
+        btime += Time.deltaTime;
+        if(btime > searchTime) //THink of this as the end of a wave
+        {
+            for(int i = 0; i < enemies.Count; i++)
+            {
+                GameObject.Destroy(enemies[i].gameObject);
+            }
+            enemies.Clear();
+            //Randomly Select new target
+            curTarget.GetComponent<TargetBuilding>().isTarget = false;
+            int r = Random.Range(0, targets.Count);
+            targets[r].isTarget = true;
+            curTarget = targets[r].gameObject;
+            btime = 0;
+        }
         if (ctime > timeBetweenWaves)
         {
             spawnMode = true;
@@ -189,6 +221,11 @@ public class GameManager : MonoBehaviour
             if (Input.mouseScrollDelta.y < 0) currentIndex--;
             if (currentIndex < 0) currentIndex = 0;
             if (currentIndex >= inventory.Length) currentIndex = inventory.Length - 1;
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                radioOn = !radioOn;
+                radioObject.SetActive(radioOn);
+            }
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -196,6 +233,7 @@ public class GameManager : MonoBehaviour
             menuMode = true;
             menu.SetActive(true);
         }
+        
     }
     public void BuyTurret()
     {
