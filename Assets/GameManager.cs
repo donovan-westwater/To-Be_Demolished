@@ -1,3 +1,4 @@
+using Array2DEditor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +12,10 @@ public class GameManager : MonoBehaviour
     public Sprite[] icons;
     public Image curIcon;
     public Text placeAmount;
-    public GameObject zombiePrefab;
+    public GameObject[] zombiePrefab;
     public GameObject player;
     public GameObject gameOver;
+    public GameObject endstate;
     //UI
     public GameObject menu;
     public Text healthText;
@@ -24,13 +26,23 @@ public class GameManager : MonoBehaviour
     public float health = 100f;
     public float buildingHealth = 1000f;
     public float ectoAmount = 0;
+    [HideInInspector]
     public List<GameObject> enemies;
     public int[] inventory = { 1, 1 };
     int currentIndex = 0;
     GameObject curPlacable;
+    //Wave System
+    public float timeBetweenSpawns = 1f;
+    public float timeBetweenWaves = 60f;
+    public Array2DInt numOfEneimesEachWave;
+    bool[] emptyCheck;
+    //public static List<TargetBuilding> targets; 
     float ctime = 0f;
-    float timer = 4f;
+    float stime = 0f;
+    int currentWave = -1;
+    int spawnPointAvaliable = 0;
     float rotAngle = 0;
+    bool spawnMode = false;
     bool menuMode = false;
     // Start is called before the first frame update
     void Start()
@@ -40,8 +52,10 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
         enemies = new List<GameObject>();
+        
         Time.timeScale = 1;
         gameOver.gameObject.SetActive(false);
+        endstate.gameObject.SetActive(false);
         menu.SetActive(false);
     }
 
@@ -61,17 +75,54 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             return;
         }
-        ctime += Time.deltaTime;
-        if (ctime > timer)
+        if(currentWave >= numOfEneimesEachWave.GridSize.x)
         {
-            ctime = 0;
-            zombiePrefab.SetActive(true);
-            foreach (GameObject s in spawnPoints)
+            menu.SetActive(false);
+            menuMode = false;
+            endstate.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
+            return;
+        }
+        ctime += Time.deltaTime;
+        stime += Time.deltaTime;
+        if (ctime > timeBetweenWaves)
+        {
+            spawnMode = true;
+            currentWave++;
+            spawnPointAvaliable++;
+            emptyCheck = new bool[numOfEneimesEachWave.GridSize.y];
+            for (int i = 0; i < emptyCheck.Length; i++)
             {
-                GameObject g = GameObject.Instantiate(zombiePrefab, s.transform.position,s.transform.rotation);
-                enemies.Add(g);
+                emptyCheck[i] = false;
             }
-            zombiePrefab.SetActive(false);
+            stime = 0;
+            ctime = 0;
+        }
+        if (spawnMode && stime > timeBetweenSpawns)
+        {
+            
+            int r = Random.Range(0, zombiePrefab.Length);
+            int sl = Random.Range(0, spawnPointAvaliable);
+            GameObject spawn = spawnPoints[sl];
+            GameObject e = zombiePrefab[r];
+            if (!emptyCheck[r])
+            {
+                e.SetActive(true);
+                GameObject g = GameObject.Instantiate(e, spawn.transform.position, spawn.transform.rotation);
+                enemies.Add(g);
+                int n = numOfEneimesEachWave.GetCells()[r,currentWave]--;
+                numOfEneimesEachWave.SetCell(currentWave, r, n - 1);
+                emptyCheck[r] = numOfEneimesEachWave.GetCells()[r, currentWave] < 1;
+                e.SetActive(false);
+                stime = 0;
+            }
+            bool noSpawns = false;
+            for (int index = 0; index < emptyCheck.Length; index++)
+            {
+                noSpawns = noSpawns & emptyCheck[index];
+            }
+            if (noSpawns) spawnMode = false;
         }
         if (menuMode)
         {

@@ -53,6 +53,11 @@ public class ZombieAi : MonoBehaviour
                     curState = ZombieStates.Building;
                 }
             }
+            else
+            {
+                zombieAgent.destination = testBuildingObj.transform.position;
+                curState = ZombieStates.Building;
+            }
         }
         
         if (curState == ZombieStates.Building)
@@ -64,7 +69,11 @@ public class ZombieAi : MonoBehaviour
                 Vector3 dir = testBuildingObj.transform.position - this.transform.position;
                 if (Physics.Raycast(this.transform.position, dir.normalized, out hit, zombieAgent.radius+0.1f))
                 {
-                    GameManager.instance.buildingHealth -= 1f;
+                    if (hit.collider.gameObject.Equals(testBuildingObj))
+                    {
+                        GameManager.instance.buildingHealth -= 1f;
+                    }
+                    
                 }
             }
         }
