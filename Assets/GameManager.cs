@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
             , .5f, 1f) * basePlayerSpeed.y;
         buildingHealthText.text = "Building Health: " + buildingHealth;
         healthText.text = "Health: " + health;
-        ectoAmountText.text = "Ecto: " + ectoAmount;
+        ectoAmountText.text = "" + ectoAmount;
         if (health <= 0 || buildingHealth <= 0)
         {
             menu.SetActive(false);
