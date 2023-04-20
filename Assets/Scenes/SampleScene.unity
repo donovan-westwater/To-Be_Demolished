@@ -14158,10 +14158,11 @@ MonoBehaviour:
   buildingHealth: 1000
   ectoAmount: 0
   enemies: []
-  inventory: 0100000001000000
-  searchTime: 60
+  inventory: 0500000005000000
+  inventoryCount: 2
+  searchTime: 15
   timeBetweenSpawns: 0.2
-  timeBetweenWaves: 30
+  timeBetweenWaves: 45
   numOfEneimesEachWave:
     gridSize: {x: 5, y: 1}
     cellSize: {x: 32, y: 16}

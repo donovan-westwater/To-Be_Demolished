@@ -14,6 +14,7 @@ public class Barricade : MonoBehaviour
             if (Vector3.Distance(this.transform.position, GameManager.instance.player.transform.position) < 3f)
             {
                 GameManager.instance.inventory[1]++;
+                GameManager.instance.inventoryCount++;
                 Destroy(this.gameObject);
             }
 

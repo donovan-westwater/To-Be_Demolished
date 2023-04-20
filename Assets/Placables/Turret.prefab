@@ -76,6 +76,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sightDst: 15
+  fireRate: 0.2
+  dmg: 5
   bullet: {fileID: 3464266547915375961, guid: e36852eb937cf584ba6ddca05dadcc45, type: 3}
 --- !u!1 &7544173574013947177
 GameObject:

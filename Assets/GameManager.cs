@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public List<GameObject> enemies;
     public int[] inventory = { 1, 1 };
+    public int inventoryCount = 2;
     int currentIndex = 0;
     GameObject curPlacable;
     //Wave System
@@ -44,12 +45,14 @@ public class GameManager : MonoBehaviour
     public static List<TargetBuilding> targets; 
     //[HideInInspector]
     public GameObject curTarget;
+    Vector2 basePlayerSpeed = new Vector2(5,7);
     float ctime = 0f;
     float stime = 0f;
     float btime = 0f;
     int currentWave = -1;
     int spawnPointAvaliable = 0;
     float rotAngle = 0;
+    bool waveMode = true;
     bool spawnMode = false;
     bool menuMode = false;
     //bool waveMode = true;
@@ -73,13 +76,22 @@ public class GameManager : MonoBehaviour
         radioObject.SetActive(false);
         menu.SetActive(false);
         //Randomly Select New Target
-        curTarget.GetComponent<TargetBuilding>().isTarget = true;
+        Random.InitState(System.DateTime.Now.Millisecond+System.DateTime.Now.Second);
+        int r = Random.Range(0, targets.Count);
+        targets[r].isTarget = true;
+        curTarget = targets[r].gameObject;
+
+        basePlayerSpeed.x = player.GetComponent<FirstPersonController>().walkSpeed;
+        basePlayerSpeed.y = player.GetComponent<FirstPersonController>().sprintSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        player.GetComponent<FirstPersonController>().walkSpeed = Mathf.Clamp(1f-inventoryCount/50f
+            ,.5f,1f)*basePlayerSpeed.x;
+        player.GetComponent<FirstPersonController>().sprintSpeed = Mathf.Clamp(1f - inventoryCount / 50f
+            , .5f, 1f) * basePlayerSpeed.y;
         buildingHealthText.text = "Building Health: " + buildingHealth;
         healthText.text = "Health: " + health;
         ectoAmountText.text = "Ecto: " + ectoAmount;
@@ -101,10 +113,13 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             return;
         }
-        ctime += Time.deltaTime;
-        stime += Time.deltaTime;
-        btime += Time.deltaTime;
-        if(btime > searchTime) //THink of this as the end of a wave
+        if (waveMode)
+        {
+            ctime += Time.deltaTime;
+            stime += Time.deltaTime;
+        }
+        else btime += Time.deltaTime;
+        if(btime > searchTime && !waveMode) //THink of this as the end of a wave
         {
             for(int i = 0; i < enemies.Count; i++)
             {
@@ -117,8 +132,9 @@ public class GameManager : MonoBehaviour
             targets[r].isTarget = true;
             curTarget = targets[r].gameObject;
             btime = 0;
+            waveMode = true;
         }
-        if (ctime > timeBetweenWaves)
+        if (ctime > timeBetweenWaves && waveMode)
         {
             spawnMode = true;
             currentWave++;
@@ -154,7 +170,12 @@ public class GameManager : MonoBehaviour
             {
                 noSpawns = noSpawns & emptyCheck[index];
             }
-            if (noSpawns) spawnMode = false;
+            if (noSpawns) {
+                Debug.Log("no spawns!");
+                spawnMode = false;
+                waveMode = false;
+                stime = 0;
+            }
         }
         if (menuMode)
         {
@@ -183,6 +204,7 @@ public class GameManager : MonoBehaviour
             else if (Input.GetMouseButtonUp(0))
             {
                 inventory[currentIndex]--;
+                inventoryCount--;
                 if (inventory[currentIndex] <= 0) inventory[currentIndex] = 0;
                 curPlacable.GetComponent<MonoBehaviour>().enabled = true;
                 curPlacable = null;
@@ -239,12 +261,14 @@ public class GameManager : MonoBehaviour
     {
         if (ectoAmount < 10) return;
         inventory[0]++;
+        inventoryCount++;
         ectoAmount -= 10;
     }
     public void BuyBarricade()
     {
         if (ectoAmount < 5) return;
         inventory[1]++;
+        inventoryCount++;
         ectoAmount -= 5;
     }
     public void Restart()
