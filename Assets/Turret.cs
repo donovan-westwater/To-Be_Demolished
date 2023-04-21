@@ -33,7 +33,8 @@ public class Turret : Placeables
     new void Update()
     {
         base.Update();
-        if(curTarget == null)
+        this.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = currentColor;
+        if (curTarget == null)
         {
             float min = 99999;
             GameObject tmp = null;
@@ -86,6 +87,7 @@ public class Turret : Placeables
         this.health = refObject.health;
         this.upgradeIcon = refObject.upgradeIcon;
         this.turretUpgrade = refObject.turretUpgrade;
+        this.currentColor = refObject.currentColor;
         if ((this.turretUpgrade & TurretUpgrades.HEALTH) == TurretUpgrades.HEALTH) this.health *= 2;
         if ((this.turretUpgrade & TurretUpgrades.FIRE_RATE) == TurretUpgrades.FIRE_RATE) this.fireRate /= 2;
         if ((this.turretUpgrade & TurretUpgrades.DAMAGE) == TurretUpgrades.DAMAGE) this.dmg *= 2;

@@ -294,13 +294,73 @@ public class GameManager : MonoBehaviour
         {
             if(p.type == 1)
             {
+                if (((Turret)p).turretUpgrade
+                    != Turret.TurretUpgrades.NONE) continue;
+                p.currentColor = Color.red;
                 ((Turret)p).upgradeIcon = icons[0];
                 ((Turret)p).turretUpgrade |= Turret.TurretUpgrades.DAMAGE;
                 ((Turret)p).dmg *= 2;
+                ectoAmount -= 10;
                 break;
             }
         }
-        ectoAmount -= 10;
+       
+    }
+    public void BuyTurretHealthUpgrade()
+    {
+        if (ectoAmount < 10) return;
+        foreach (Placeables p in inventory)
+        {
+            if (p.type == 1)
+            {
+                if (((Turret)p).turretUpgrade
+                    != Turret.TurretUpgrades.NONE) continue;
+                p.currentColor = Color.green;
+                ((Turret)p).upgradeIcon = icons[1];
+                ((Turret)p).turretUpgrade |= Turret.TurretUpgrades.HEALTH;
+                ((Turret)p).health *= 2;
+                ectoAmount -= 10;
+                break;
+            }
+        }
+       
+    }
+    public void BuyTurretRangeUpgrade()
+    {
+        if (ectoAmount < 10) return;
+        foreach (Placeables p in inventory)
+        {
+            if (p.type == 1)
+            {
+                if (((Turret)p).turretUpgrade
+                    != Turret.TurretUpgrades.NONE) continue;
+                p.currentColor = Color.blue;
+                ((Turret)p).upgradeIcon = icons[2];
+                ((Turret)p).turretUpgrade |= Turret.TurretUpgrades.SIGHT_RANGE;
+                ((Turret)p).sightDst *= 2;
+                ectoAmount -= 10;
+                break;
+            }
+        }
+    }
+    public void BuyTurretFireRateUpgrade()
+    {
+        if (ectoAmount < 10) return;
+        foreach (Placeables p in inventory)
+        {
+            if (p.type == 1)
+            {
+                if (((Turret)p).turretUpgrade
+                    != Turret.TurretUpgrades.NONE) continue;
+                p.currentColor = Color.yellow;
+                ((Turret)p).upgradeIcon = icons[3];
+                ((Turret)p).turretUpgrade |= Turret.TurretUpgrades.FIRE_RATE;
+                ((Turret)p).fireRate /= 2;
+                ectoAmount -= 10;
+                break;
+            }
+        }
+        
     }
     public void BuyBarricade()
     {

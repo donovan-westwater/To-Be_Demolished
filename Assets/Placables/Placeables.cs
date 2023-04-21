@@ -8,6 +8,7 @@ public class Placeables : MonoBehaviour
     public float health = 100f;
     public Sprite menuIcon;
     public Sprite upgradeIcon;
+    public Color currentColor = Color.white;
     public int type = 0;
     public enum Upgrades
     {
@@ -19,6 +20,7 @@ public class Placeables : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        
         if (health <= 0) Destroy(this.gameObject);
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -35,6 +37,7 @@ public class Placeables : MonoBehaviour
     {
         this.health = refObject.health;
         this.currentUpgrade = refObject.currentUpgrade;
+        this.currentColor = refObject.currentColor;
         if (this.currentUpgrade == Upgrades.HEALTH) this.health *= 4;
 
     }
