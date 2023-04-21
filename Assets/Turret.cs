@@ -3,26 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Placables should have a base class to derive from!
-public class Turret : MonoBehaviour
+public class Turret : Placeables
 {
     // Start is called before the first frame update
     public float sightDst = 15f;
     public float fireRate = .5f;
     public float dmg = 5f;
-    float health = 100f; //Going to ignore for now
     float timer = 0f;
     public GameObject bullet;
     private GameObject head;
     private GameObject curTarget = null;
+    
+    public enum TurretUpgrades
+    {
+        NONE = 0,
+        HEALTH = 1,
+        DAMAGE = 2,
+        FIRE_RATE = 4,
+        SIGHT_RANGE = 8
+    };
+    public TurretUpgrades turretUpgrade = TurretUpgrades.NONE;
     void Awake()
     {
         head = this.transform.GetChild(0).GetChild(0).gameObject;
-        
+        base.type = 1;   
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
+        base.Update();
         if(curTarget == null)
         {
             float min = 99999;
@@ -70,20 +80,16 @@ public class Turret : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if(Vector3.Distance(this.transform.position,GameManager.instance.player.transform.position) < 3f)
-            {
-                GameManager.instance.inventory[0]++;
-                GameManager.instance.inventoryCount++;
-                Destroy(this.gameObject);
-            }
-            
-
-        }
     }
-    private void OnCollisionStay(Collision collision)
+    public void CopyAttributes(Turret refObject)
     {
-        if (collision.gameObject.tag.Equals("Enemy")) health -= 1;
+        this.health = refObject.health;
+        this.upgradeIcon = refObject.upgradeIcon;
+        this.turretUpgrade = refObject.turretUpgrade;
+        if ((this.turretUpgrade & TurretUpgrades.HEALTH) == TurretUpgrades.HEALTH) this.health *= 2;
+        if ((this.turretUpgrade & TurretUpgrades.FIRE_RATE) == TurretUpgrades.FIRE_RATE) this.fireRate /= 2;
+        if ((this.turretUpgrade & TurretUpgrades.DAMAGE) == TurretUpgrades.DAMAGE) this.dmg *= 2;
+        if ((this.turretUpgrade & TurretUpgrades.SIGHT_RANGE) == TurretUpgrades.SIGHT_RANGE) this.sightDst *= 2;
+
     }
 }

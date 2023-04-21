@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] placables;
     public Sprite[] icons;
     public Image curIcon;
+    public Image curUpIcon;
     public Text placeAmount;
     public GameObject[] zombiePrefab;
     public GameObject player;
@@ -29,8 +30,7 @@ public class GameManager : MonoBehaviour
     public float ectoAmount = 0;
     [HideInInspector]
     public List<GameObject> enemies;
-    public int[] inventory = { 1, 1 };
-    public int inventoryCount = 2;
+    public List<Placeables> inventory;
     int currentIndex = 0;
     GameObject curPlacable;
     //Wave System
@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     bool waveMode = true;
     bool spawnMode = false;
     bool menuMode = false;
+    GameObject placeStorage;
     //bool waveMode = true;
     // Start is called before the first frame update
     private void Awake()
@@ -67,7 +68,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
+        placeStorage = new GameObject("Place Storage");
+        placeStorage.SetActive(false);
         enemies = new List<GameObject>();
         
         Time.timeScale = 1;
@@ -88,9 +90,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        player.GetComponent<FirstPersonController>().walkSpeed = Mathf.Clamp(1f-inventoryCount/50f
+        player.GetComponent<FirstPersonController>().walkSpeed = Mathf.Clamp(1f-inventory.Count/50f
             ,.5f,1f)*basePlayerSpeed.x;
-        player.GetComponent<FirstPersonController>().sprintSpeed = Mathf.Clamp(1f - inventoryCount / 50f
+        player.GetComponent<FirstPersonController>().sprintSpeed = Mathf.Clamp(1f - inventory.Count / 50f
             , .5f, 1f) * basePlayerSpeed.y;
         buildingHealthText.text = "Building Health: " + buildingHealth;
         healthText.text = "Health: " + health;
@@ -165,7 +167,7 @@ public class GameManager : MonoBehaviour
                 e.SetActive(false);
                 stime = 0;
             }
-            bool noSpawns = false;
+            bool noSpawns = true;
             for (int index = 0; index < emptyCheck.Length; index++)
             {
                 noSpawns = noSpawns & emptyCheck[index];
@@ -192,20 +194,33 @@ public class GameManager : MonoBehaviour
     }
     void InputCheck()
     {
-        placeAmount.text = "" + inventory[currentIndex];
-        curIcon.sprite = icons[currentIndex];
-        if(inventory[currentIndex] > 0)
+        
+        //upgradeIcon.sprite = inventory[currentIndex].upgradeIcon;
+        if (inventory.Count > 0)
         {
+            curIcon.enabled = true;
+            placeAmount.text = ""+ currentIndex;// + inventory[currentIndex];
+            curIcon.sprite = inventory[currentIndex].menuIcon;
+            curUpIcon.sprite = inventory[currentIndex].upgradeIcon;
+            if (curUpIcon.sprite != null) curUpIcon.enabled = true;
+            else curUpIcon.enabled = false;
             if (Input.GetMouseButtonDown(0))
             {
-                curPlacable = GameObject.Instantiate(placables[currentIndex]);
+                int i = inventory[currentIndex].type;
+                curPlacable = GameObject.Instantiate(placables[i]);
+                if (i == 1) {
+                    curPlacable.GetComponent<Turret>().CopyAttributes((Turret)inventory[currentIndex]);
+                }
+                else
+                {
+                    curPlacable.GetComponent<Placeables>().CopyAttributes(inventory[currentIndex]);
+                }
+                inventory[currentIndex] = curPlacable.GetComponent<Placeables>();
                 curPlacable.GetComponent<MonoBehaviour>().enabled = false;
             }
             else if (Input.GetMouseButtonUp(0))
             {
-                inventory[currentIndex]--;
-                inventoryCount--;
-                if (inventory[currentIndex] <= 0) inventory[currentIndex] = 0;
+                inventory.Remove(curPlacable.GetComponent<Placeables>());
                 curPlacable.GetComponent<MonoBehaviour>().enabled = true;
                 curPlacable = null;
             }
@@ -214,7 +229,12 @@ public class GameManager : MonoBehaviour
                 Destroy(curPlacable);
                 curPlacable = null;
             }
-            
+
+        }
+        else
+        {
+            curIcon.enabled = false;
+            curUpIcon.enabled = false;
         }
         
         if(curPlacable != null)
@@ -242,7 +262,7 @@ public class GameManager : MonoBehaviour
             if (Input.mouseScrollDelta.y > 0) currentIndex++;
             if (Input.mouseScrollDelta.y < 0) currentIndex--;
             if (currentIndex < 0) currentIndex = 0;
-            if (currentIndex >= inventory.Length) currentIndex = inventory.Length - 1;
+            if (currentIndex >= inventory.Count) currentIndex = inventory.Count <= 0 ? 0 : inventory.Count - 1;
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 radioOn = !radioOn;
@@ -260,15 +280,35 @@ public class GameManager : MonoBehaviour
     public void BuyTurret()
     {
         if (ectoAmount < 10) return;
-        inventory[0]++;
-        inventoryCount++;
+        Turret t = placeStorage.AddComponent<Turret>();
+        t.type = 1;
+        t.menuIcon = placables[1].GetComponent<Turret>().menuIcon;
+        t.upgradeIcon = null;
+        inventory.Add(t);
+        ectoAmount -= 10;
+    }
+    public void BuyTurretDamgeUpgrade()
+    {
+        if (ectoAmount < 10) return;
+        foreach(Placeables p in inventory)
+        {
+            if(p.type == 1)
+            {
+                ((Turret)p).upgradeIcon = icons[0];
+                ((Turret)p).turretUpgrade |= Turret.TurretUpgrades.DAMAGE;
+                ((Turret)p).dmg *= 2;
+                break;
+            }
+        }
         ectoAmount -= 10;
     }
     public void BuyBarricade()
     {
         if (ectoAmount < 5) return;
-        inventory[1]++;
-        inventoryCount++;
+        Barricade b = placeStorage.AddComponent<Barricade>();
+        b.menuIcon = placables[0].GetComponent<Barricade>().menuIcon;
+        b.upgradeIcon = null;
+        inventory.Add(b);
         ectoAmount -= 5;
     }
     public void Restart()
