@@ -371,6 +371,26 @@ public class GameManager : MonoBehaviour
         inventory.Add(b);
         ectoAmount -= 5;
     }
+    public void UpgradeBarricade()
+    {
+        if (ectoAmount < 5) return;
+        foreach (Placeables p in inventory)
+        {
+            if (p.type == 0)
+            {
+                if(p.currentUpgrade != Placeables.Upgrades.NONE)
+                {
+                    continue;
+                }
+                p.currentUpgrade |= Placeables.Upgrades.HEALTH;
+                p.currentColor = Color.green;
+                ((Barricade)p).barHealth *= 4;
+                p.upgradeIcon = icons[1];
+                ectoAmount -= 5;
+                break;
+            }
+        }
+    }
     public void Restart()
     {
         SceneManager.LoadScene(0);

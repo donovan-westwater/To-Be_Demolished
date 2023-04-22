@@ -38,6 +38,7 @@ public class Placeables : MonoBehaviour
         this.health = refObject.health;
         this.currentUpgrade = refObject.currentUpgrade;
         this.currentColor = refObject.currentColor;
+        this.upgradeIcon = refObject.upgradeIcon;
         if (this.currentUpgrade == Upgrades.HEALTH) this.health *= 4;
 
     }
