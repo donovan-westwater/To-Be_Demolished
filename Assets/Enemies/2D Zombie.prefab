@@ -180,8 +180,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   sightDist: 10
-  testBuildingObj: {fileID: 0}
+  targetBuildingObj: {fileID: 0}
   ecoPrefab: {fileID: 0}
+  dmg: 5
+  dmgTickRate: 0.5
 --- !u!54 &1198749605120105453
 Rigidbody:
   m_ObjectHideFlags: 0

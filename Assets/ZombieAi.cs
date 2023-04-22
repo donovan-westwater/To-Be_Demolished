@@ -9,8 +9,12 @@ public class ZombieAi : MonoBehaviour
     public float sightDist = 10f;
     public GameObject targetBuildingObj;
     public GameObject ecoPrefab;
-    private NavMeshAgent zombieAgent;
-    private GameObject playerObj;
+    public float dmg = 5f;
+    public float dmgTickRate = 1f; 
+    protected NavMeshAgent zombieAgent;
+    protected GameObject playerObj;
+    float timer = 0;
+    bool canDmgNow = true;
     enum ZombieStates
     {
         Building,
@@ -30,6 +34,12 @@ public class ZombieAi : MonoBehaviour
     void Update()
     {
         if (!zombieAgent.isOnNavMesh || !zombieAgent.isActiveAndEnabled) return;
+        if (!canDmgNow) timer += Time.deltaTime;
+        if(timer > dmgTickRate)
+        {
+            timer = 0;
+            canDmgNow = true;
+        }
         if (health <= 0)
         {
             GameManager.instance.enemies.Remove(this.gameObject);
@@ -37,7 +47,7 @@ public class ZombieAi : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-            if (Vector3.Distance(playerObj.transform.position,this.transform.position) < sightDist)
+        if (Vector3.Distance(playerObj.transform.position,this.transform.position) < sightDist)
         {
             RaycastHit hit;
             Vector3 dir = playerObj.transform.position - this.transform.position;
@@ -60,11 +70,16 @@ public class ZombieAi : MonoBehaviour
                 curState = ZombieStates.Building;
             }
         }
-        
+        else
+        {
+            zombieAgent.destination = targetBuildingObj.transform.position;
+            curState = ZombieStates.Building;
+        }
+
         if (curState == ZombieStates.Building)
         {
             float d = Vector3.Distance(targetBuildingObj.transform.position, this.transform.position);
-            if (d < 30f)
+            if (d < 30f && canDmgNow)
             {
                 RaycastHit hit;
                 Vector3 dir = targetBuildingObj.transform.position - this.transform.position;
@@ -72,7 +87,8 @@ public class ZombieAi : MonoBehaviour
                 {
                     if (hit.collider.gameObject.Equals(targetBuildingObj))
                     {
-                        GameManager.instance.buildingHealth -= 1f;
+                        GameManager.instance.buildingHealth -= dmg;
+                        canDmgNow = false;
                     }
                     
                 }
@@ -82,9 +98,10 @@ public class ZombieAi : MonoBehaviour
     }
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.collider.tag.Equals("Player"))
+        if (collision.collider.tag.Equals("Player") && canDmgNow)
         {
-            GameManager.instance.health -= 1f;
+            GameManager.instance.health -= dmg;
+            canDmgNow = false;
         }
     }
 }

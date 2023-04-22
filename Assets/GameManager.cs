@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
             ,.5f,1f)*basePlayerSpeed.x;
         player.GetComponent<FirstPersonController>().sprintSpeed = Mathf.Clamp(1f - inventory.Count / 50f
             , .5f, 1f) * basePlayerSpeed.y;
-        buildingHealthText.text = "Building Health: " + buildingHealth;
+        buildingHealthText.text = "Bomb Health: " + buildingHealth;
         healthText.text = "Health: " + health;
         ectoAmountText.text = "" + ectoAmount;
         if (health <= 0 || buildingHealth <= 0)
@@ -156,14 +156,14 @@ public class GameManager : MonoBehaviour
             int sl = Random.Range(0, spawnPointAvaliable);
             GameObject spawn = spawnPoints[sl];
             GameObject e = zombiePrefab[r];
+            emptyCheck[r] = numOfEneimesEachWave.GetCells()[r, currentWave] < 1;
             if (!emptyCheck[r])
             {
                 e.SetActive(true);
                 GameObject g = GameObject.Instantiate(e, spawn.transform.position, spawn.transform.rotation);
                 enemies.Add(g);
                 int n = numOfEneimesEachWave.GetCells()[r,currentWave]--;
-                numOfEneimesEachWave.SetCell(currentWave, r, n - 1);
-                emptyCheck[r] = numOfEneimesEachWave.GetCells()[r, currentWave] < 1;
+                numOfEneimesEachWave.SetCell(currentWave, r, n - 1);   
                 e.SetActive(false);
                 stime = 0;
             }
