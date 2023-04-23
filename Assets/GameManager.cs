@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public StudioEventEmitter placeEmitter;
     public GameObject[] spawnPoints;
     public GameObject[] placables;
     public Sprite[] icons;
@@ -222,7 +223,7 @@ public class GameManager : MonoBehaviour
             else if (Input.GetMouseButtonUp(0))
             {
                 inventory.Remove(curPlacable.GetComponent<Placeables>());
-                
+                placeEmitter.Play();
                 curPlacable.GetComponent<MonoBehaviour>().enabled = true;
                 curPlacable = null;
             }

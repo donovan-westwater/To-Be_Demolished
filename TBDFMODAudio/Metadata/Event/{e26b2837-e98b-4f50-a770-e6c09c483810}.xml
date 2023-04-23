@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{e26b2837-e98b-4f50-a770-e6c09c483810}">
 		<property name="name">
-			<value>Place Wall</value>
+			<value>Place Item</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -98,7 +98,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{13230587-e7de-432e-b592-f32586304c1a}">
 		<property name="volume">
-			<value>-3</value>
+			<value>-15.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>

@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8530067702015980946}
   - component: {fileID: 8004932796736594419}
+  - component: {fileID: 7218638772378715555}
   m_Layer: 2
   m_Name: Turret
   m_TagString: Placable
@@ -86,6 +87,37 @@ MonoBehaviour:
   dmg: 5
   bullet: {fileID: 3464266547915375961, guid: e36852eb937cf584ba6ddca05dadcc45, type: 3}
   turretUpgrade: 0
+--- !u!114 &7218638772378715555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2199253928695020227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -779435482
+      Data2: 1133991299
+      Data3: 471674261
+      Data4: 1608091883
+    Path: event:/Turret Shot
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7544173574013947177
 GameObject:
   m_ObjectHideFlags: 0

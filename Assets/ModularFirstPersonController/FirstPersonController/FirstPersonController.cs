@@ -6,6 +6,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ using UnityEngine.UI;
 
 public class FirstPersonController : MonoBehaviour
 {
+    private StudioEventEmitter myEmitter;
     private Rigidbody rb;
 
     #region Camera Movement Variables
@@ -147,6 +149,8 @@ public class FirstPersonController : MonoBehaviour
             sprintRemaining = sprintDuration;
             sprintCooldownReset = sprintCooldown;
         }
+
+        myEmitter = gameObject.GetComponent<StudioEventEmitter>();
     }
 
     void Start()
@@ -378,10 +382,13 @@ public class FirstPersonController : MonoBehaviour
             if (targetVelocity.x != 0 || targetVelocity.z != 0 && isGrounded)
             {
                 isWalking = true;
+                if(!myEmitter.IsPlaying())
+                    myEmitter.Play();
             }
             else
             {
                 isWalking = false;
+                myEmitter.Stop();
             }
 
             // All movement calculations shile sprint is active
@@ -401,7 +408,7 @@ public class FirstPersonController : MonoBehaviour
                 if (velocityChange.x != 0 || velocityChange.z != 0)
                 {
                     isSprinting = true;
-
+                    myEmitter.SetParameter("Sprinting", 1f);
                     if (isCrouched)
                     {
                         Crouch();
@@ -419,7 +426,7 @@ public class FirstPersonController : MonoBehaviour
             else
             {
                 isSprinting = false;
-
+                myEmitter.SetParameter("Sprinting", 0f);
                 if (hideBarWhenFull && sprintRemaining == sprintDuration)
                 {
                     sprintBarCG.alpha -= 3 * Time.deltaTime;

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 //Placables should have a base class to derive from!
 public class Turret : Placeables
 {
     // Start is called before the first frame update
+    private StudioEventEmitter myEmitter;
     public float sightDst = 15f;
     public float fireRate = .5f;
     public float dmg = 5f;
@@ -26,7 +28,8 @@ public class Turret : Placeables
     void Awake()
     {
         head = this.transform.GetChild(0).GetChild(0).gameObject;
-        base.type = 1;   
+        base.type = 1;
+        myEmitter = gameObject.GetComponent<StudioEventEmitter>();
     }
 
     // Update is called once per frame
@@ -71,6 +74,7 @@ public class Turret : Placeables
                     f.y = 0;
                     this.transform.GetChild(0).transform.rotation *= Quaternion.FromToRotation(this.transform.GetChild(0).forward, dir.normalized);
                     GameObject b = GameObject.Instantiate(bullet, head.transform.position, this.transform.GetChild(0).transform.rotation);
+                    myEmitter.Play();
                     b.GetComponent<Bullet>().dir = dir.normalized;
                     b.GetComponent<Bullet>().dmg = dmg;
                     if (curTarget.GetComponent<ZombieAi>().health <= 0) curTarget = null;

@@ -54,33 +54,6 @@ MonoBehaviour:
   MinDistance: 3
   MaxDistance: 700
   Length: 49388
---- !u!114 &-7872215645225547661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Place Turret
-  m_EditorClassIdentifier: 
-  Path: event:/Place Turret
-  Guid:
-    Data1: -1244600701
-    Data2: 1174259395
-    Data3: -176586608
-    Data4: 785942228
-  Banks:
-  - {fileID: -1451568778576662361}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 394
 --- !u!114 &-7531718567950446172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,60 +81,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-7206092107979100398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Pick Up Wall
-  m_EditorClassIdentifier: 
-  Path: event:/Pick Up Wall
-  Guid:
-    Data1: -1348088786
-    Data2: 1308230278
-    Data3: -840688000
-    Data4: 941732025
-  Banks:
-  - {fileID: -1451568778576662361}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 255
---- !u!114 &-6432115941163841678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Place Wall
-  m_EditorClassIdentifier: 
-  Path: event:/Place Wall
-  Guid:
-    Data1: -496293833
-    Data2: 1330702731
-    Data3: -1058639705
-    Data4: 272124060
-  Banks:
-  - {fileID: -1451568778576662361}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 336
 --- !u!114 &-5765532755721505010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +108,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-4857163241500220104
+--- !u!114 &-3420569470871366277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,14 +118,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Pick Up Turret
+  m_Name: event:/Turret Shot
   m_EditorClassIdentifier: 
-  Path: event:/Pick Up Turret
+  Path: event:/Turret Shot
   Guid:
-    Data1: 358416368
-    Data2: 1311169331
-    Data3: -1929006406
-    Data4: -1803368815
+    Data1: -779435482
+    Data2: 1133991299
+    Data3: 471674261
+    Data4: 1608091883
   Banks:
   - {fileID: -1451568778576662361}
   IsStream: 0
@@ -215,7 +134,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 255
+  Length: 0
 --- !u!114 &-1451568778576662361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,10 +150,10 @@ MonoBehaviour:
   Path: TBDFMODAudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638178166234182576
+  lastModified: 638178188791187438
   FileSizes:
   - Name: Desktop
-    Value: 1659104
+    Value: 1656352
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -253,11 +172,7 @@ MonoBehaviour:
   - {fileID: -1451568778576662361}
   EditorEvents:
   - {fileID: -7531718567950446172}
-  - {fileID: -7206092107979100398}
-  - {fileID: -6432115941163841678}
-  - {fileID: -7872215645225547661}
   - {fileID: 5135291336721918778}
-  - {fileID: -4857163241500220104}
   - {fileID: -8520093850255300730}
   - {fileID: 914284285969263022}
   - {fileID: 346792212730942559}
@@ -265,12 +180,15 @@ MonoBehaviour:
   - {fileID: -5765532755721505010}
   - {fileID: 598809051107298261}
   - {fileID: 5715505725534108435}
+  - {fileID: 3793166428232679087}
+  - {fileID: 744643886908474589}
+  - {fileID: -3420569470871366277}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1451568778576662361}
   StringsBanks:
   - {fileID: 263896597388843744}
-  cacheTime: 638178166234212598
+  cacheTime: 638178188791227479
   cacheVersion: 131603
 --- !u!114 &263896597388843744
 MonoBehaviour:
@@ -287,7 +205,7 @@ MonoBehaviour:
   Path: TBDFMODAudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638178166234212598
+  lastModified: 638178188791227479
   FileSizes:
   - Name: Desktop
     Value: 1310
@@ -346,6 +264,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &744643886908474589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Pick Up
+  m_EditorClassIdentifier: 
+  Path: event:/Pick Up
+  Guid:
+    Data1: -1244600701
+    Data2: 1174259395
+    Data3: -176586608
+    Data4: 785942228
+  Banks:
+  - {fileID: -1451568778576662361}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 394
 --- !u!114 &914284285969263022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +318,57 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &2812878074933333745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Walk and Run/Sprinting
+  m_EditorClassIdentifier: 
+  Name: Sprinting
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1207633777
+    data2: 3659165460
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &3793166428232679087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Place Item
+  m_EditorClassIdentifier: 
+  Path: event:/Place Item
+  Guid:
+    Data1: -496293833
+    Data2: 1330702731
+    Data3: -1058639705
+    Data4: 272124060
+  Banks:
+  - {fileID: -1451568778576662361}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 336
 --- !u!114 &5135291336721918778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,11 +391,12 @@ MonoBehaviour:
   - {fileID: -1451568778576662361}
   IsStream: 1
   Is3D: 1
-  IsOneShot: 1
-  Parameters: []
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 2812878074933333745}
   MinDistance: 1
   MaxDistance: 20
-  Length: 59000
+  Length: 410
 --- !u!114 &5715505725534108435
 MonoBehaviour:
   m_ObjectHideFlags: 0

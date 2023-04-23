@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,7 @@ public class Placeables : MonoBehaviour
             if (Vector3.Distance(this.transform.position, GameManager.instance.player.transform.position) < 3f)
             {
                 GameManager.instance.inventory.Add(this);
+                GameObject.Find("Pickup Emitter").GetComponent<StudioEventEmitter>().Play();
                 Destroy(this.gameObject);
             }
 
