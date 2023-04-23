@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{b19d28d9-348f-4b8d-a78f-2a3528edda2b}">
+		<property name="assetPath">
+			<value>362673__osiruswaltz__demon_ghost-speaking-1.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>12.620045351473923</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{71b10475-c51d-4321-8ff2-901e32970793}</destination>
+		</relationship>
+	</object>
+</objects>

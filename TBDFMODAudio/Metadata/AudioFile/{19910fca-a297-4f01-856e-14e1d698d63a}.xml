@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{19910fca-a297-4f01-856e-14e1d698d63a}">
+		<property name="assetPath">
+			<value>401226__rileywarren__drone-1-omnisphere.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>17.519455782312924</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{71b10475-c51d-4321-8ff2-901e32970793}</destination>
+		</relationship>
+	</object>
+</objects>
