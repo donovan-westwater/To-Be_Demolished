@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject opening;
+    public BombHealth bombHealth;
+    public HealthUI healthUI;
     public StudioEventEmitter placeEmitter;
     public GameObject[] spawnPoints;
     public GameObject[] placables;
@@ -57,6 +60,7 @@ public class GameManager : MonoBehaviour
     bool waveMode = true;
     bool spawnMode = false;
     bool menuMode = false;
+    bool startGame = false;
     GameObject placeStorage;
     //bool waveMode = true;
     // Start is called before the first frame update
@@ -87,11 +91,14 @@ public class GameManager : MonoBehaviour
 
         basePlayerSpeed.x = player.GetComponent<FirstPersonController>().walkSpeed;
         basePlayerSpeed.y = player.GetComponent<FirstPersonController>().sprintSpeed;
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!startGame) Cursor.lockState = CursorLockMode.None; 
         player.GetComponent<FirstPersonController>().walkSpeed = Mathf.Clamp(1f-inventory.Count/50f
             ,.5f,1f)*basePlayerSpeed.x;
         player.GetComponent<FirstPersonController>().sprintSpeed = Mathf.Clamp(1f - inventory.Count / 50f
@@ -193,6 +200,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         InputCheck();
+        bombHealth.UpdateHealthBar();
+        healthUI.UpdateHealthBar();
     }
     void InputCheck()
     {
@@ -404,6 +413,13 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
+    }
+    public void StartGame()
+    {
+        startGame = true;
+        opening.SetActive(false);
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     public void Restart()
     {

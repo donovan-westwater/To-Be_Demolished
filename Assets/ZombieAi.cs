@@ -33,6 +33,8 @@ public class ZombieAi : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+
+        
         if (!zombieAgent.isOnNavMesh || !zombieAgent.isActiveAndEnabled) return;
         if (!canDmgNow) timer += Time.deltaTime;
         if(timer > dmgTickRate)
@@ -47,6 +49,7 @@ public class ZombieAi : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
+
         if (Vector3.Distance(playerObj.transform.position,this.transform.position) < sightDist)
         {
             RaycastHit hit;
@@ -70,12 +73,12 @@ public class ZombieAi : MonoBehaviour
                 curState = ZombieStates.Building;
             }
         }
-        else
+        else if(curState == ZombieStates.Player)
         {
             zombieAgent.destination = targetBuildingObj.transform.position;
             curState = ZombieStates.Building;
         }
-
+        
         if (curState == ZombieStates.Building)
         {
             float d = Vector3.Distance(targetBuildingObj.transform.position, this.transform.position);
@@ -95,6 +98,7 @@ public class ZombieAi : MonoBehaviour
             }
         }
         
+        //zombieAgent.destination = new Vector3(zombieAgent.destination.x,this.transform.position.y, zombieAgent.destination.z);
     }
     private void OnCollisionStay(Collision collision)
     {
