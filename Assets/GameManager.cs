@@ -1,6 +1,7 @@
 using Array2DEditor;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -221,6 +222,7 @@ public class GameManager : MonoBehaviour
             else if (Input.GetMouseButtonUp(0))
             {
                 inventory.Remove(curPlacable.GetComponent<Placeables>());
+                
                 curPlacable.GetComponent<MonoBehaviour>().enabled = true;
                 curPlacable = null;
             }
@@ -266,6 +268,17 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 radioOn = !radioOn;
+                /*
+                if (radioOn)
+                {
+                    print("playing");
+                    radioObject.GetComponent<StudioEventEmitter>().Play();
+                }
+                else
+                {
+                    print("stopping");
+                    radioObject.GetComponent<StudioEventEmitter>().Stop();
+                }*/
                 radioObject.SetActive(radioOn);
             }
         }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5654726201236862791}
   - component: {fileID: 8329560876426378872}
   - component: {fileID: 7693837461131025418}
+  - component: {fileID: -3643585200430512169}
   m_Layer: 0
   m_Name: 2D Death Ghost
   m_TagString: Enemy
@@ -110,6 +111,37 @@ MonoBehaviour:
   speedInc: 1.5
   dmgMulti: 2.5
   sightMulti: 2
+--- !u!114 &-3643585200430512169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5654726201236862793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2102593058
+      Data2: 1223069626
+      Data3: 1900186261
+      Data4: -1503561079
+    Path: event:/Death Ghost
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 3
+  OverrideMaxDistance: 700
 --- !u!1 &8821704861219730326
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8211911295941227680}
   - component: {fileID: 8525921233897267384}
   - component: {fileID: 7265816189400537178}
+  - component: {fileID: -5337318564729391514}
   m_Layer: 0
   m_Name: Lamp_crap
   m_TagString: Untagged
@@ -97,6 +98,37 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &-5337318564729391514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5542221444678452563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 742261557
+      Data2: 1334479667
+      Data3: 274127749
+      Data4: -68005623
+    Path: event:/Streetlight Buzz
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7779091300530872948
 GameObject:
   m_ObjectHideFlags: 0
