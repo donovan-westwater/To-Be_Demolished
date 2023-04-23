@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{32096dd1-0a49-444c-a418-613878f4038e}">
+		<property name="assetPath">
+			<value>587946__noahbangs__monster-moan-droning.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>68.388571428571424</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{71b10475-c51d-4321-8ff2-901e32970793}</destination>
+		</relationship>
+	</object>
+</objects>

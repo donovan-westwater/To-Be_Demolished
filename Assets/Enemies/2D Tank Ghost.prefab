@@ -108,7 +108,8 @@ GameObject:
   - component: {fileID: 8919852720654444771}
   - component: {fileID: 5055495310329733596}
   - component: {fileID: 2750747944833678779}
-  m_Layer: 6
+  - component: {fileID: 195492700632991583}
+  m_Layer: 0
   m_Name: 2D Tank Ghost
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -203,3 +204,34 @@ MonoBehaviour:
   canDmgNow: 1
   healthMulti: 4
   speedDecrease: 0.5
+--- !u!114 &195492700632991583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8919852720654444781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
