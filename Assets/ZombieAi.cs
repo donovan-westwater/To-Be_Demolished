@@ -7,10 +7,14 @@ public class ZombieAi : MonoBehaviour
 {
     public float health = 100f;
     public float sightDist = 10f;
-    public GameObject testBuildingObj;
+    public GameObject targetBuildingObj;
     public GameObject ecoPrefab;
-    private NavMeshAgent zombieAgent;
-    private GameObject playerObj;
+    public float dmg = 5f;
+    public float dmgTickRate = 0.5f; 
+    protected NavMeshAgent zombieAgent;
+    protected GameObject playerObj;
+    float timer = 0;
+    public bool canDmgNow = true;
     enum ZombieStates
     {
         Building,
@@ -20,15 +24,24 @@ public class ZombieAi : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        targetBuildingObj = GameManager.instance.curTarget;
         playerObj = GameObject.FindGameObjectWithTag("Player");
         zombieAgent = this.GetComponent<NavMeshAgent>();
-        zombieAgent.destination = testBuildingObj.transform.position;
+        zombieAgent.destination = targetBuildingObj.transform.position;
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
+
+        
         if (!zombieAgent.isOnNavMesh || !zombieAgent.isActiveAndEnabled) return;
+        if (!canDmgNow) timer += Time.deltaTime;
+        if(timer > dmgTickRate)
+        {
+            timer = 0;
+            canDmgNow = true;
+        }
         if (health <= 0)
         {
             GameManager.instance.enemies.Remove(this.gameObject);
@@ -36,7 +49,8 @@ public class ZombieAi : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-            if (Vector3.Distance(playerObj.transform.position,this.transform.position) < sightDist)
+
+        if (Vector3.Distance(playerObj.transform.position,this.transform.position) < sightDist)
         {
             RaycastHit hit;
             Vector3 dir = playerObj.transform.position - this.transform.position;
@@ -49,32 +63,54 @@ public class ZombieAi : MonoBehaviour
                 }
                 else
                 {
-                    zombieAgent.destination = testBuildingObj.transform.position;
+                    zombieAgent.destination = targetBuildingObj.transform.position;
                     curState = ZombieStates.Building;
                 }
             }
+            else
+            {
+                zombieAgent.destination = targetBuildingObj.transform.position;
+                curState = ZombieStates.Building;
+            }
+        }
+        else if(curState == ZombieStates.Player)
+        {
+            zombieAgent.destination = targetBuildingObj.transform.position;
+            curState = ZombieStates.Building;
         }
         
         if (curState == ZombieStates.Building)
         {
-            float d = Vector3.Distance(testBuildingObj.transform.position, this.transform.position);
-            if (d < 30f)
+            float d = Vector3.Distance(targetBuildingObj.transform.position, this.transform.position);
+            if (d < 30f && canDmgNow)
             {
                 RaycastHit hit;
-                Vector3 dir = testBuildingObj.transform.position - this.transform.position;
+                Vector3 dir = targetBuildingObj.transform.position - this.transform.position;
                 if (Physics.Raycast(this.transform.position, dir.normalized, out hit, zombieAgent.radius+0.1f))
                 {
-                    GameManager.instance.buildingHealth -= 1f;
+                    if (hit.collider.gameObject.Equals(targetBuildingObj))
+                    {
+                        GameManager.instance.buildingHealth -= dmg;
+                        canDmgNow = false;
+                    }
+                    
                 }
             }
         }
         
+        //zombieAgent.destination = new Vector3(zombieAgent.destination.x,this.transform.position.y, zombieAgent.destination.z);
     }
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.collider.tag.Equals("Player"))
+        if (collision.collider.tag.Equals("Player") && canDmgNow)
         {
-            GameManager.instance.health -= 1f;
+            GameManager.instance.health -= dmg;
+            canDmgNow = false;
+        }
+        if (collision.collider.CompareTag("Placable") && canDmgNow)
+        {
+            collision.collider.GetComponentInParent<Placeables>().health -= dmg;
+            canDmgNow = false;
         }
     }
 }

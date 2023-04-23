@@ -8,6 +8,11 @@ public class EctoCollector : MonoBehaviour
 
     public static List<Rigidbody> caughtRigidbodies = new List<Rigidbody>();
 
+    private void Awake()
+    {
+        caughtRigidbodies.Clear();
+    }
+
     void FixedUpdate()
     {
         for (int i = 0; i < caughtRigidbodies.Count; i++)

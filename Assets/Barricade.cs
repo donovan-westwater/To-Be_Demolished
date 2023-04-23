@@ -2,26 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Barricade : MonoBehaviour
+public class Barricade : Placeables
 {
-    public float health = 100f;
-
-    private void Update()
+    public Sprite barIcon;
+    public float barHealth;
+    private void Start()
     {
-        if (health <= 0) Destroy(this.gameObject);
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (Vector3.Distance(this.transform.position, GameManager.instance.player.transform.position) < 3f)
-            {
-                GameManager.instance.inventory[1]++;
-                Destroy(this.gameObject);
-            }
-
-
-        }
-    }
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.tag.Equals("Enemy")) health -= 1;
+        if (base.currentUpgrade == Upgrades.HEALTH) this.barHealth *= 4;
+        base.health = barHealth;
+        this.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = currentColor;
+        base.menuIcon = barIcon;
+        base.type = 0;
     }
 }

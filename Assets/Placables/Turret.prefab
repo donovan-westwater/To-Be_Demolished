@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3185374588789682141}
   m_Layer: 2
   m_Name: Exit
-  m_TagString: Untagged
+  m_TagString: Placable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,8 +75,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d496a47793ab84b8decb862dda9e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  menuIcon: {fileID: 21300000, guid: f45c31d2592e4e24b845b5e70df791d9, type: 3}
+  upgradeIcon: {fileID: 0}
+  currentColor: {r: 1, g: 1, b: 1, a: 1}
+  type: 1
+  currentUpgrade: 0
   sightDst: 15
+  fireRate: 0.2
+  dmg: 5
   bullet: {fileID: 3464266547915375961, guid: e36852eb937cf584ba6ddca05dadcc45, type: 3}
+  turretUpgrade: 0
 --- !u!1 &7544173574013947177
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +100,7 @@ GameObject:
   - component: {fileID: 8872799748512857159}
   m_Layer: 2
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Placable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,7 +197,7 @@ GameObject:
   - component: {fileID: 7521516192422823755}
   m_Layer: 2
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Placable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,7 +293,7 @@ GameObject:
   - component: {fileID: 6538292990600826301}
   m_Layer: 2
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Placable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
