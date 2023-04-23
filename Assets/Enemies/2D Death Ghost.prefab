@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5654726201236862791}
   - component: {fileID: 8329560876426378872}
   - component: {fileID: 7693837461131025418}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2D Death Ghost
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 8821704861219730329}
   - component: {fileID: 8821704861219730331}
   - component: {fileID: 8821704861219730328}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

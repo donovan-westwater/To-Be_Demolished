@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5754699393587440701}
   - component: {fileID: 5754699393587440703}
   - component: {fileID: 5754699393587440700}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 8919852720654444771}
   - component: {fileID: 5055495310329733596}
   - component: {fileID: 2750747944833678779}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2D Tank Ghost
   m_TagString: Enemy
   m_Icon: {fileID: 0}
