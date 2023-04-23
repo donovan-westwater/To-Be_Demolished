@@ -14,8 +14,9 @@ public class TankGhostAi : ZombieAi
         startSpeed = base.zombieAgent.speed;
         base.sightDist = 0; //Shouldnt be able to see the player
     }
-    private void Update()
+    new private void Update()
     {
         base.zombieAgent.speed = startSpeed* speedDecrease;
+        base.Update();
     }
 }

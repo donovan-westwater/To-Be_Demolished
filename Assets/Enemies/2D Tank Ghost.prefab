@@ -200,5 +200,6 @@ MonoBehaviour:
   ecoPrefab: {fileID: 310753584755899522, guid: a8fc72568fc843a429eaddb20eb372d6, type: 3}
   dmg: 5
   dmgTickRate: 1
+  canDmgNow: 1
   healthMulti: 4
   speedDecrease: 0.5

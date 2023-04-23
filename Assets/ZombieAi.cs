@@ -10,11 +10,11 @@ public class ZombieAi : MonoBehaviour
     public GameObject targetBuildingObj;
     public GameObject ecoPrefab;
     public float dmg = 5f;
-    public float dmgTickRate = 1f; 
+    public float dmgTickRate = 0.5f; 
     protected NavMeshAgent zombieAgent;
     protected GameObject playerObj;
     float timer = 0;
-    bool canDmgNow = true;
+    public bool canDmgNow = true;
     enum ZombieStates
     {
         Building,
@@ -31,7 +31,7 @@ public class ZombieAi : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (!zombieAgent.isOnNavMesh || !zombieAgent.isActiveAndEnabled) return;
         if (!canDmgNow) timer += Time.deltaTime;
@@ -101,6 +101,11 @@ public class ZombieAi : MonoBehaviour
         if (collision.collider.tag.Equals("Player") && canDmgNow)
         {
             GameManager.instance.health -= dmg;
+            canDmgNow = false;
+        }
+        if (collision.collider.CompareTag("Placable") && canDmgNow)
+        {
+            collision.collider.GetComponentInParent<Placeables>().health -= dmg;
             canDmgNow = false;
         }
     }

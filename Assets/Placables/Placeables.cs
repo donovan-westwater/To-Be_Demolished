@@ -44,6 +44,14 @@ public class Placeables : MonoBehaviour
     }
     public void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag.Equals("Enemy")) health -= 1;
+       // if (collision.gameObject.tag.Equals("Enemy"))
+       // {
+        //    bool canDmg = collision.gameObject.GetComponent<ZombieAi>().canDmgNow;
+        //    if (canDmg)
+         //   {
+        //        health -= collision.gameObject.GetComponent<ZombieAi>().dmg;
+        //        collision.gameObject.GetComponent<ZombieAi>().canDmgNow = false;
+        //    }
+        //}
     }
 }
