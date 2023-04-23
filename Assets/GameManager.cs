@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public BombHealth bombHealth;
+    public HealthUI healthUI;
     public GameObject[] spawnPoints;
     public GameObject[] placables;
     public Sprite[] icons;
@@ -85,6 +87,7 @@ public class GameManager : MonoBehaviour
 
         basePlayerSpeed.x = player.GetComponent<FirstPersonController>().walkSpeed;
         basePlayerSpeed.y = player.GetComponent<FirstPersonController>().sprintSpeed;
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
@@ -191,6 +194,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         InputCheck();
+        bombHealth.UpdateHealthBar();
+        healthUI.UpdateHealthBar();
     }
     void InputCheck()
     {
