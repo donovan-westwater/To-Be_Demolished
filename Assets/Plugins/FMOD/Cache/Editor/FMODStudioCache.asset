@@ -150,7 +150,7 @@ MonoBehaviour:
   Path: TBDFMODAudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638178188791187438
+  lastModified: 638178092459170473
   FileSizes:
   - Name: Desktop
     Value: 1656352
@@ -188,7 +188,7 @@ MonoBehaviour:
   - {fileID: -1451568778576662361}
   StringsBanks:
   - {fileID: 263896597388843744}
-  cacheTime: 638178188791227479
+  cacheTime: 638178092459180472
   cacheVersion: 131603
 --- !u!114 &263896597388843744
 MonoBehaviour:
@@ -205,7 +205,7 @@ MonoBehaviour:
   Path: TBDFMODAudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638178188791227479
+  lastModified: 638178092459180472
   FileSizes:
   - Name: Desktop
     Value: 1310
