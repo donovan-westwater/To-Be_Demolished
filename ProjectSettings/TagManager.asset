@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Currency
   - Placable
+  - RingGirl
   layers:
   - Default
   - TransparentFX
