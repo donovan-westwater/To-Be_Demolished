@@ -25,7 +25,7 @@ MonoBehaviour:
   IsOneShot: 0
   Parameters: []
   MinDistance: 0.49999997
-  MaxDistance: 10
+  MaxDistance: 5.8
   Length: 13051
 --- !u!114 &-7945357899509901124
 MonoBehaviour:
@@ -108,6 +108,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4992
+--- !u!114 &-3989536723418753253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Spooky Static Linear
+  m_EditorClassIdentifier: 
+  Path: event:/Spooky Static Linear
+  Guid:
+    Data1: 37704063
+    Data2: 1106417322
+    Data3: -173912943
+    Data4: 651385653
+  Banks:
+  - {fileID: -1451568778576662361}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0.49999997
+  MaxDistance: 10
+  Length: 13051
 --- !u!114 &-3420569470871366277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,10 +177,10 @@ MonoBehaviour:
   Path: TBDFMODAudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638178207304492801
+  lastModified: 638178210108864965
   FileSizes:
   - Name: Desktop
-    Value: 2166880
+    Value: 2170208
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -183,12 +210,13 @@ MonoBehaviour:
   - {fileID: 3793166428232679087}
   - {fileID: 744643886908474589}
   - {fileID: -3420569470871366277}
+  - {fileID: -3989536723418753253}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1451568778576662361}
   StringsBanks:
   - {fileID: 263896597388843744}
-  cacheTime: 638178207304532837
+  cacheTime: 638178210108895005
   cacheVersion: 131603
 --- !u!114 &263896597388843744
 MonoBehaviour:
@@ -205,10 +233,10 @@ MonoBehaviour:
   Path: TBDFMODAudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638178207304532837
+  lastModified: 638178210108895005
   FileSizes:
   - Name: Desktop
-    Value: 1310
+    Value: 1360
   Exists: 1
 --- !u!114 &346792212730942559
 MonoBehaviour:

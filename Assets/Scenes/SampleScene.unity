@@ -17219,7 +17219,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 0.49999997
-  OverrideMaxDistance: 10
+  OverrideMaxDistance: 5.8
 --- !u!1 &1736152049
 GameObject:
   m_ObjectHideFlags: 0
