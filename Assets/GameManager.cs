@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject opening;
     public BombHealth bombHealth;
     public HealthUI healthUI;
+    public GameObject pauseMessage;
     public StudioEventEmitter placeEmitter;
     public GameObject[] spawnPoints;
     public GameObject[] placables;
@@ -61,6 +62,7 @@ public class GameManager : MonoBehaviour
     bool spawnMode = false;
     bool menuMode = false;
     bool startGame = false;
+    bool pauseMode = false;
     int pageN = 0;
     GameObject placeStorage;
     //bool waveMode = true;
@@ -92,6 +94,7 @@ public class GameManager : MonoBehaviour
 
         basePlayerSpeed.x = player.GetComponent<FirstPersonController>().walkSpeed;
         basePlayerSpeed.y = player.GetComponent<FirstPersonController>().sprintSpeed;
+        player.GetComponent<FirstPersonController>().cameraCanMove = false;
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
     }
@@ -99,6 +102,22 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape) && !menuMode)
+        {
+            pauseMode = !pauseMode;
+            pauseMessage.SetActive(pauseMode);
+            player.GetComponent<FirstPersonController>().cameraCanMove = !pauseMode;
+            if (Cursor.lockState == CursorLockMode.Locked) Cursor.lockState = CursorLockMode.None;
+            else Cursor.lockState = CursorLockMode.Locked;
+            if (pauseMode)
+            {
+                Time.timeScale = 0;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+        }
         if (!startGame) Cursor.lockState = CursorLockMode.None; 
         player.GetComponent<FirstPersonController>().walkSpeed = Mathf.Clamp(1f-inventory.Count/10f
             ,.5f,1f)*basePlayerSpeed.x;
@@ -109,6 +128,7 @@ public class GameManager : MonoBehaviour
         ectoAmountText.text = "" + ectoAmount;
         if (health <= 0 || buildingHealth <= 0)
         {
+            player.GetComponent<FirstPersonController>().cameraCanMove = false;
             menu.SetActive(false);
             menuMode = false;
             gameOver.SetActive(true);
@@ -192,8 +212,9 @@ public class GameManager : MonoBehaviour
         if (menuMode)
         {
 
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Escape))
             {
+                player.GetComponent<FirstPersonController>().cameraCanMove = true;
                 Cursor.lockState = CursorLockMode.Locked;
                 menuMode = false;
                 menu.SetActive(false);
@@ -293,8 +314,9 @@ public class GameManager : MonoBehaviour
                 radioObject.SetActive(radioOn);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && !pauseMode)
         {
+            player.GetComponent<FirstPersonController>().cameraCanMove = false;
             Cursor.lockState = CursorLockMode.None;
             menuMode = true;
             menu.SetActive(true);
@@ -424,6 +446,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
+        player.GetComponent<FirstPersonController>().cameraCanMove = true;
         startGame = true;
         opening.SetActive(false);
         Time.timeScale = 1;

@@ -12,6 +12,7 @@ public class TargetBuilding : MonoBehaviour
     private StudioEventEmitter myEmitter;
     public GameObject myStaticEmitter;
     public float damp = 0.8f;
+    const float signald = 30f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class TargetBuilding : MonoBehaviour
         myEmitter = gameObject.GetComponent<StudioEventEmitter>();
         GameManager.targets.Add(this);
         myEmitter.Stop();
+        if (myStaticEmitter != null) myStaticEmitter.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,28 +30,32 @@ public class TargetBuilding : MonoBehaviour
         if (!isTarget) {
             source.Stop();
             myEmitter.Stop();
+            if(myStaticEmitter != null) myStaticEmitter.SetActive(false);
             return; 
         }
         if (GameManager.instance.radioOn)
         {
-            //if(!myStaticEmitter.activeSelf) myStaticEmitter.SetActive(true);
+            if(!myStaticEmitter.activeSelf) myStaticEmitter.SetActive(true);
             if(!myEmitter.IsPlaying())
                 myEmitter.Play();
             if (!source.isPlaying) source.Play();
             float d = Vector3.Distance(GameManager.instance.player.transform.position, this.transform.position);
-            if (d < 30)
+            if (d < signald)
             {
-                myEmitter.EventInstance.setVolume(1 - d / 30);
-                source.volume = 1 - d / 30;
+                myEmitter.EventInstance.setVolume(1f - d / signald);
+                source.volume = 1f - d / signald;
                 source.volume *= damp;
             }
             else
             {
+                myStaticEmitter.SetActive(false);
                 source.volume = 0;
+                myEmitter.EventInstance.setVolume(0);
             }
         }
         else
         {
+            myStaticEmitter.SetActive(false);
             source.Stop();
             myEmitter.Stop();
         }
