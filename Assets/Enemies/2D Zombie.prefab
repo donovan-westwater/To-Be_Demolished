@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 3261666690976535251}
   - component: {fileID: 1198749605120105453}
   - component: {fileID: 7470704046058489809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2D Zombie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 801289314454252522}
   - component: {fileID: 6523779665797584418}
   - component: {fileID: 6460641306960473133}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

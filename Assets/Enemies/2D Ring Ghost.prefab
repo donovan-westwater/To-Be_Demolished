@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6612599161932272684}
   - component: {fileID: 2096891201560485251}
   - component: {fileID: 7315521020611168065}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 7311024752399110234}
   - component: {fileID: 2468722078901190841}
   - component: {fileID: -4150038628639392593}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2D Ring Ghost
   m_TagString: RingGirl
   m_Icon: {fileID: 0}

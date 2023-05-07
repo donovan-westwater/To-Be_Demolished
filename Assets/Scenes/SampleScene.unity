@@ -302,6 +302,92 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0.49999997
   OverrideMaxDistance: 850
+--- !u!1 &32905282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 32905283}
+  - component: {fileID: 32905285}
+  - component: {fileID: 32905284}
+  m_Layer: 0
+  m_Name: Page 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &32905283
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32905282}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_Children: []
+  m_Father: {fileID: 896077251}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 17.599998}
+  m_SizeDelta: {x: 60, y: -70}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &32905284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32905282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9339623, g: 0.92074585, b: 0.92074585, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 907be156b6d541049820f240e24a5a4d, type: 3}
+    m_FontSize: 13
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'On the top your screen you have your health, building health, and Ectoplasium,
+    or Ecto amount. The first two are self explanatory but Ecto, is used to fuel
+    and create the defensive devices you will use to defend the buidlings. You have
+    been provided some, but can collect more from disappated locals. You can open
+    and close the menu with tab. Once you buy a device, it should show up in the
+    bottom left corner. Upgrades each have their own markings, which should help
+    you tell them apart. These devices can be placed by holding left click and releasing
+    where you want it '
+--- !u!222 &32905285
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32905282}
+  m_CullTransparentMesh: 1
 --- !u!1 &34228008
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +616,10 @@ PrefabInstance:
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_Name
       value: Lamp_crap (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
@@ -819,6 +909,10 @@ PrefabInstance:
       value: Cylinder (3)
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1094,6 +1188,10 @@ PrefabInstance:
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_Name
       value: Lamp_crap (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
@@ -1681,9 +1779,9 @@ RectTransform:
   m_Father: {fileID: 83014591}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -280, y: -140}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 120, y: 85}
   m_SizeDelta: {x: 250, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &126334847
@@ -1961,8 +2059,8 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: 2.4
-  OverrideMaxDistance: 11
+  OverrideMinDistance: 0.49999997
+  OverrideMaxDistance: 5.8
 --- !u!1 &152105766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2513,6 +2611,10 @@ PrefabInstance:
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_Name
       value: Cylinder (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
@@ -4177,6 +4279,10 @@ PrefabInstance:
       value: Cylinder (6)
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -4476,6 +4582,10 @@ PrefabInstance:
       value: Lamp_crap (4)
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -4596,10 +4706,10 @@ RectTransform:
   m_Father: {fileID: 83014591}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 263.5, y: 161.39449}
-  m_SizeDelta: {x: 122.795, y: 110.8221}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -136.5, y: -45}
+  m_SizeDelta: {x: 122.79498, y: 110.82208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &318821913
 MonoBehaviour:
@@ -5119,8 +5229,8 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: 2.4
-  OverrideMaxDistance: 11
+  OverrideMinDistance: 0.49999997
+  OverrideMaxDistance: 5.8
 --- !u!1 &383276824
 GameObject:
   m_ObjectHideFlags: 0
@@ -5770,6 +5880,10 @@ PrefabInstance:
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_Name
       value: Lamp_crap (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
@@ -7034,6 +7148,10 @@ PrefabInstance:
       value: Lamp_crap (6)
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -8096,8 +8214,8 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: 2.4
-  OverrideMaxDistance: 700
+  OverrideMinDistance: 0.49999997
+  OverrideMaxDistance: 5.8
 --- !u!1001 &660467406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8206,6 +8324,10 @@ PrefabInstance:
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_Name
       value: Lamp_crap (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
@@ -8732,9 +8854,9 @@ RectTransform:
   m_Father: {fileID: 83014591}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 326.1, y: 123.8}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -73.899994, y: -90}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &788704166
@@ -8822,6 +8944,10 @@ PrefabInstance:
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_Name
       value: Cylinder (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
@@ -9199,6 +9325,10 @@ PrefabInstance:
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_Name
       value: Lamp_crap (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
@@ -9679,7 +9809,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &853586430
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9741,6 +9871,89 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Health: 100'
+--- !u!1 &880841981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 880841982}
+  - component: {fileID: 880841984}
+  - component: {fileID: 880841983}
+  m_Layer: 0
+  m_Name: Page 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &880841982
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880841981}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_Children: []
+  m_Father: {fileID: 896077251}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 17.599998}
+  m_SizeDelta: {x: 60, y: -70}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &880841983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880841981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9339623, g: 0.92074585, b: 0.92074585, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 907be156b6d541049820f240e24a5a4d, type: 3}
+    m_FontSize: 13
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: to be placed. They can be rotated with the Q and E keys. Right click while
+    holding to cancel the placement of the device. The devices can be picked up with
+    the E key. The company would like to remind you that you frail mortal body can't
+    carry many of these devices at once without being weighed down. We wish you luck
+    and my the king in yellow guide your way.
+--- !u!222 &880841984
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880841981}
+  m_CullTransparentMesh: 1
 --- !u!1 &887325878
 GameObject:
   m_ObjectHideFlags: 0
@@ -9905,6 +10118,8 @@ RectTransform:
   m_LocalScale: {x: 3, y: 2, z: 1}
   m_Children:
   - {fileID: 2030237293}
+  - {fileID: 32905283}
+  - {fileID: 880841982}
   - {fileID: 1229649302}
   m_Father: {fileID: 1019303645}
   m_RootOrder: 0
@@ -10060,6 +10275,10 @@ PrefabInstance:
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_Name
       value: Lamp_crap (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
@@ -11117,6 +11336,10 @@ PrefabInstance:
       value: Cylinder (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -11419,7 +11642,7 @@ RectTransform:
   m_GameObject: {fileID: 1019303644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 896077251}
   m_Father: {fileID: 83014591}
@@ -11478,6 +11701,10 @@ PrefabInstance:
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_Name
       value: Lamp_crap (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
@@ -12500,6 +12727,10 @@ PrefabInstance:
       value: Lamp_crap (7)
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -12765,9 +12996,9 @@ RectTransform:
   m_Father: {fileID: 83014591}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -271.2, y: 164.1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 128.79999, y: -45}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1180006030
@@ -12831,6 +13062,10 @@ PrefabInstance:
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_Name
       value: Lamp_crap (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
@@ -12929,6 +13164,10 @@ PrefabInstance:
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_Name
       value: Lamp_crap (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
@@ -13340,7 +13579,7 @@ RectTransform:
   m_Children:
   - {fileID: 1586444220}
   m_Father: {fileID: 896077251}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13804,6 +14043,10 @@ PrefabInstance:
       value: Cylinder (4)
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -13908,6 +14151,10 @@ PrefabInstance:
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_Name
       value: Lamp_crap (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
@@ -14664,7 +14911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1354611094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15517,6 +15764,10 @@ PrefabInstance:
       value: Lamp_crap (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -16105,6 +16356,10 @@ PrefabInstance:
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_Name
       value: Lamp_crap (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer
@@ -17206,7 +17461,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 0.49999997
-  OverrideMaxDistance: 850
+  OverrideMaxDistance: 5.8
 --- !u!114 &1687263953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17741,7 +17996,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726239246}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4966458bf5c0d1d4fb530497de142ba4, type: 3}
@@ -20758,12 +21013,12 @@ GameObject:
   - component: {fileID: 2030237295}
   - component: {fileID: 2030237294}
   m_Layer: 0
-  m_Name: Text
+  m_Name: Page1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2030237293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20778,10 +21033,10 @@ RectTransform:
   m_Father: {fileID: 896077251}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 17.6}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 17.599998}
+  m_SizeDelta: {x: 60, y: -70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2030237294
 MonoBehaviour:
@@ -20821,10 +21076,10 @@ MonoBehaviour:
     Umbra Urban Developments Inc instructs you
     to defend our redevolpment efforts here in Little Springs. Our redevelopers have
     been trying to remove the aquired property for our new projects, but the locals
-    have been interfering with our work. Tune your radio to find the each building
-    the explosives will destory and defend it until is property is removed. We have
-    provided some resources to build a defense. Good luck and may the yellow king
-    guide your way.'
+    have been interfering with our work. We have planted explosives in the buildings
+    marked for removal already. Use your radio to follow the signal to each of the
+    designated buildings and defend it until the property is removed. We have provided
+    some resources to build a defense. Tool instructions are on page 2.'
 --- !u!222 &2030237295
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21482,6 +21737,10 @@ PrefabInstance:
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_Name
       value: Lamp_crap
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5542221444678452563, guid: 3461d2b9b1c35454da850b97d92a5c76, type: 3}
       propertyPath: m_NavMeshLayer

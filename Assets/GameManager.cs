@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
     bool spawnMode = false;
     bool menuMode = false;
     bool startGame = false;
+    int pageN = 0;
     GameObject placeStorage;
     //bool waveMode = true;
     // Start is called before the first frame update
@@ -99,9 +100,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (!startGame) Cursor.lockState = CursorLockMode.None; 
-        player.GetComponent<FirstPersonController>().walkSpeed = Mathf.Clamp(1f-inventory.Count/50f
+        player.GetComponent<FirstPersonController>().walkSpeed = Mathf.Clamp(1f-inventory.Count/10f
             ,.5f,1f)*basePlayerSpeed.x;
-        player.GetComponent<FirstPersonController>().sprintSpeed = Mathf.Clamp(1f - inventory.Count / 50f
+        player.GetComponent<FirstPersonController>().sprintSpeed = Mathf.Clamp(1f - inventory.Count / 10f
             , .5f, 1f) * basePlayerSpeed.y;
         buildingHealthText.text = "Bomb Health: " + buildingHealth;
         healthText.text = "Health: " + health;
@@ -413,6 +414,13 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
+    }
+    public void NextPage() {
+        opening.transform.GetChild(0).GetChild(pageN).gameObject.SetActive(false);
+        pageN++;
+        if (pageN > 2) StartGame();
+        else opening.transform.GetChild(0).GetChild(pageN).gameObject.SetActive(true);
+        
     }
     public void StartGame()
     {

@@ -10,7 +10,7 @@ public class Turret : Placeables
     private StudioEventEmitter myEmitter;
     public float sightDst = 15f;
     public float fireRate = .5f;
-    public float dmg = 5f;
+    public float dmg = 10f;
     float timer = 0f;
     public GameObject bullet;
     private GameObject head;

@@ -19,12 +19,17 @@ public class TargetBuilding : MonoBehaviour
         source = GameManager.instance.gameObject.GetComponent<AudioSource>();
         myEmitter = gameObject.GetComponent<StudioEventEmitter>();
         GameManager.targets.Add(this);
+        myEmitter.Stop();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isTarget) return;
+        if (!isTarget) {
+            source.Stop();
+            myEmitter.Stop();
+            return; 
+        }
         if (GameManager.instance.radioOn)
         {
             //if(!myStaticEmitter.activeSelf) myStaticEmitter.SetActive(true);
@@ -34,6 +39,7 @@ public class TargetBuilding : MonoBehaviour
             float d = Vector3.Distance(GameManager.instance.player.transform.position, this.transform.position);
             if (d < 30)
             {
+                myEmitter.EventInstance.setVolume(1 - d / 30);
                 source.volume = 1 - d / 30;
                 source.volume *= damp;
             }

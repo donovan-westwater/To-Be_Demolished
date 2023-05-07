@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 8897862959963017287}
   - component: {fileID: 6777768683140059854}
   - component: {fileID: 3418758455480042162}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 8958018586430203346}
   - component: {fileID: 4733373954569759981}
   - component: {fileID: -2865466688630327382}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2D Elite Ghost
   m_TagString: Enemy
   m_Icon: {fileID: 0}

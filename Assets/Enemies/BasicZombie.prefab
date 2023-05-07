@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1276421255631095464}
   - component: {fileID: 1276421255631095465}
   - component: {fileID: 5331736929789969241}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BasicZombie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -135,7 +135,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   sightDist: 10
-  testBuildingObj: {fileID: 0}
+  targetBuildingObj: {fileID: 0}
+  ecoPrefab: {fileID: 0}
+  dmg: 5
+  dmgTickRate: 0.5
+  canDmgNow: 1
 --- !u!54 &5331736929789969241
 Rigidbody:
   m_ObjectHideFlags: 0
