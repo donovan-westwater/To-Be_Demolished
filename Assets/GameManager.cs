@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     //UI
     public GameObject radioObject;
     public GameObject menu;
+    public GameObject waveUI;
     public Text healthText;
     public Text buildingHealthText;
     public Text ectoAmountText;
@@ -97,6 +98,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<FirstPersonController>().cameraCanMove = false;
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
+        waveUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -211,19 +213,26 @@ public class GameManager : MonoBehaviour
         }
         if (menuMode)
         {
-
+            waveUI.SetActive(false);
             if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Escape))
             {
                 player.GetComponent<FirstPersonController>().cameraCanMove = true;
                 Cursor.lockState = CursorLockMode.Locked;
                 menuMode = false;
                 menu.SetActive(false);
+                waveUI.SetActive(true);
             }
             return;
         }
         InputCheck();
         bombHealth.UpdateHealthBar();
         healthUI.UpdateHealthBar();
+        //Wave Update
+        waveUI.transform.GetChild(0).GetComponent<Text>().text = "Wave #" + (currentWave+1);
+        if (!waveMode) waveUI.transform.GetChild(1).GetComponent<Text>().text = "Wave End in: " 
+                + (searchTime -btime).ToString("0.00");
+        else waveUI.transform.GetChild(1).GetComponent<Text>().text = "Wave Start in: " 
+                + (timeBetweenWaves - ctime).ToString("0.00");
     }
     void InputCheck()
     {
@@ -449,6 +458,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<FirstPersonController>().cameraCanMove = true;
         startGame = true;
         opening.SetActive(false);
+        waveUI.SetActive(true);
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
     }
