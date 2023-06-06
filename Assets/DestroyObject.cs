@@ -15,7 +15,7 @@ public class DestroyObject : MonoBehaviour
     private Plane edgePlane = new Plane();
     private Vector3 explodeCenter;
     private static List<PartMesh> meshManager;
-    private const int maxPieaces = 5;//25;
+    private const int maxPieaces = 25;
     public int CutCascades = 1;
     public float ExplodeForce = 0;
 
