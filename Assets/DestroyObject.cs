@@ -29,6 +29,7 @@ public class DestroyObject : MonoBehaviour
     }
 
     // Update is called once per frame
+   /*
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -44,9 +45,12 @@ public class DestroyObject : MonoBehaviour
             
         }
     }
-
-    private void DestroyMesh()
+    */
+    public void DestroyMesh()
     {
+        //Unparent object to avoid issues
+        this.transform.SetParent(null);
+        explodeCenter = this.gameObject.transform.position;
         //Setup variables for submeshes
         var originalMesh = GetComponent<MeshFilter>().mesh;
         originalMesh.RecalculateBounds();

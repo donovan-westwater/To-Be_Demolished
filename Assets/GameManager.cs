@@ -160,6 +160,7 @@ public class GameManager : MonoBehaviour
                 GameObject.Destroy(enemies[i].gameObject);
             }
             enemies.Clear();
+            curTarget.GetComponent<DestroyObject>().DestroyMesh();
             //Randomly Select new target
             curTarget.GetComponent<TargetBuilding>().isTarget = false;
             int r = Random.Range(0, targets.Count);
@@ -229,10 +230,18 @@ public class GameManager : MonoBehaviour
         healthUI.UpdateHealthBar();
         //Wave Update
         waveUI.transform.GetChild(0).GetComponent<Text>().text = "Wave #" + (currentWave+1);
-        if (!waveMode) waveUI.transform.GetChild(1).GetComponent<Text>().text = "Wave End in: " 
-                + (searchTime -btime).ToString("0.00");
-        else waveUI.transform.GetChild(1).GetComponent<Text>().text = "Wave Start in: " 
+        if (!waveMode)
+        {
+            waveUI.transform.GetChild(1).GetComponent<Text>().text = "Wave End in: "
+    + (searchTime - btime).ToString("0.00");
+            waveUI.transform.GetChild(1).GetComponent<Text>().color = Color.red;
+        }
+        else
+        {
+            waveUI.transform.GetChild(1).GetComponent<Text>().text = "Wave Start in: "
                 + (timeBetweenWaves - ctime).ToString("0.00");
+            waveUI.transform.GetChild(1).GetComponent<Text>().color = Color.green;
+        }
     }
     void InputCheck()
     {

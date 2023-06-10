@@ -172,8 +172,9 @@ GameObject:
   - component: {fileID: 14626775}
   - component: {fileID: 14626778}
   - component: {fileID: 14626779}
+  - component: {fileID: 14626780}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Target
   m_TagString: Buildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -302,6 +303,20 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0.49999997
   OverrideMaxDistance: 5.8
+--- !u!114 &14626780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14626773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d6000333f922f469c21e57211b388e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 3
+  ExplodeForce: 500
 --- !u!1 &32905282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1933,8 +1948,9 @@ GameObject:
   - component: {fileID: 141604175}
   - component: {fileID: 141604178}
   - component: {fileID: 141604179}
+  - component: {fileID: 141604180}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Target
   m_TagString: Buildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -2063,6 +2079,20 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0.49999997
   OverrideMaxDistance: 5.8
+--- !u!114 &141604180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141604173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d6000333f922f469c21e57211b388e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 3
+  ExplodeForce: 500
 --- !u!1 &152105766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,8 +2336,9 @@ GameObject:
   - component: {fileID: 177988855}
   - component: {fileID: 177988859}
   - component: {fileID: 177988860}
+  - component: {fileID: 177988861}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: Target
   m_TagString: Buildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -2436,6 +2467,20 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0.49999997
   OverrideMaxDistance: 5.8
+--- !u!114 &177988861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177988854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d6000333f922f469c21e57211b388e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 3
+  ExplodeForce: 500
 --- !u!1 &193586187
 GameObject:
   m_ObjectHideFlags: 0
@@ -5103,8 +5148,9 @@ GameObject:
   - component: {fileID: 381353599}
   - component: {fileID: 381353602}
   - component: {fileID: 381353603}
+  - component: {fileID: 381353604}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Target
   m_TagString: Buildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -5233,6 +5279,20 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0.49999997
   OverrideMaxDistance: 5.8
+--- !u!114 &381353604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381353597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d6000333f922f469c21e57211b388e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 3
+  ExplodeForce: 500
 --- !u!1 &383276824
 GameObject:
   m_ObjectHideFlags: 0
@@ -6148,8 +6208,9 @@ GameObject:
   - component: {fileID: 490999701}
   - component: {fileID: 490999704}
   - component: {fileID: 490999705}
+  - component: {fileID: 490999706}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Target
   m_TagString: Buildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -6276,8 +6337,22 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: 2.4
-  OverrideMaxDistance: 11
+  OverrideMinDistance: 0.49999997
+  OverrideMaxDistance: 5.8
+--- !u!114 &490999706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490999699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d6000333f922f469c21e57211b388e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 3
+  ExplodeForce: 500
 --- !u!1 &503653121
 GameObject:
   m_ObjectHideFlags: 0
@@ -8167,8 +8242,9 @@ GameObject:
   - component: {fileID: 657349901}
   - component: {fileID: 657349905}
   - component: {fileID: 657349906}
+  - component: {fileID: 657349907}
   m_Layer: 0
-  m_Name: Cube (8)
+  m_Name: Target
   m_TagString: Buildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -8297,6 +8373,20 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0.49999997
   OverrideMaxDistance: 5.8
+--- !u!114 &657349907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657349900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d6000333f922f469c21e57211b388e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 3
+  ExplodeForce: 500
 --- !u!1001 &660467406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10655,8 +10745,9 @@ GameObject:
   - component: {fileID: 964399392}
   - component: {fileID: 964399395}
   - component: {fileID: 964399396}
+  - component: {fileID: 964399397}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Target
   m_TagString: Buildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -10785,6 +10876,20 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0.49999997
   OverrideMaxDistance: 5.8
+--- !u!114 &964399397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964399390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d6000333f922f469c21e57211b388e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 3
+  ExplodeForce: 500
 --- !u!1 &973951901
 GameObject:
   m_ObjectHideFlags: 0
@@ -11348,8 +11453,9 @@ GameObject:
   - component: {fileID: 989289232}
   - component: {fileID: 989289235}
   - component: {fileID: 989289236}
+  - component: {fileID: 989289237}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Target
   m_TagString: Buildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -11478,6 +11584,20 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0.49999997
   OverrideMaxDistance: 5.8
+--- !u!114 &989289237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989289230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d6000333f922f469c21e57211b388e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 3
+  ExplodeForce: 500
 --- !u!1001 &1001079885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11800,7 +11920,7 @@ RectTransform:
   m_GameObject: {fileID: 1019303644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 4, y: 3.5, z: 1}
   m_Children:
   - {fileID: 896077251}
   m_Father: {fileID: 83014591}
@@ -15145,8 +15265,9 @@ GameObject:
   - component: {fileID: 1361338536}
   - component: {fileID: 1361338539}
   - component: {fileID: 1361338540}
+  - component: {fileID: 1361338541}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Target
   m_TagString: Buildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -15275,6 +15396,20 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0.49999997
   OverrideMaxDistance: 5.8
+--- !u!114 &1361338541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361338534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d6000333f922f469c21e57211b388e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 3
+  ExplodeForce: 500
 --- !u!1 &1365548965
 GameObject:
   m_ObjectHideFlags: 0
@@ -20240,8 +20375,9 @@ GameObject:
   - component: {fileID: 1938159365}
   - component: {fileID: 1938159368}
   - component: {fileID: 1938159369}
+  - component: {fileID: 1938159370}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Target
   m_TagString: Buildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -20369,6 +20505,20 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0.49999997
   OverrideMaxDistance: 5.8
+--- !u!114 &1938159370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938159363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d6000333f922f469c21e57211b388e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 3
+  ExplodeForce: 500
 --- !u!1 &1943124436
 GameObject:
   m_ObjectHideFlags: 0
