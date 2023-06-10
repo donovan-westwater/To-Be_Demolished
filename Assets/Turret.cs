@@ -74,6 +74,8 @@ public class Turret : Placeables
                     f.y = 0;
                     this.transform.GetChild(0).transform.rotation *= Quaternion.FromToRotation(this.transform.GetChild(0).forward, dir.normalized);
                     GameObject b = GameObject.Instantiate(bullet, head.transform.position, this.transform.GetChild(0).transform.rotation);
+                    GameObject barrel = this.transform.GetChild(0).GetChild(1).gameObject;
+                    Physics.IgnoreCollision(barrel.GetComponent<Collider>(), b.GetComponent<Collider>(),true);
                     myEmitter.Play();
                     b.GetComponent<Bullet>().dir = dir.normalized;
                     b.GetComponent<Bullet>().dmg = dmg;

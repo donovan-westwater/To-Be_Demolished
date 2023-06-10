@@ -18429,7 +18429,7 @@ MonoBehaviour:
   inventory: []
   searchTime: 45
   timeBetweenSpawns: 0.2
-  timeBetweenWaves: 30
+  timeBetweenWaves: 45
   numOfEneimesEachWave:
     gridSize: {x: 5, y: 6}
     cellSize: {x: 32, y: 16}

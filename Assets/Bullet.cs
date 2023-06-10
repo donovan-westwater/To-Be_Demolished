@@ -13,7 +13,10 @@ public class Bullet : MonoBehaviour
     {
         
     }
-
+    private void Awake()
+    {
+        Debug.Log("I have been shot!");
+    }
     // Update is called once per frame
     void Update()
     {
@@ -27,6 +30,7 @@ public class Bullet : MonoBehaviour
         {
             collision.collider.GetComponent<ZombieAi>().health -= dmg;
         }
+        Debug.Log(collision.collider.tag);
         Destroy(this.gameObject);
 
     }

@@ -84,7 +84,7 @@ MonoBehaviour:
   currentUpgrade: 0
   sightDst: 15
   fireRate: 0.2
-  dmg: 10
+  dmg: 25
   bullet: {fileID: 3464266547915375961, guid: e36852eb937cf584ba6ddca05dadcc45, type: 3}
   turretUpgrade: 0
 --- !u!114 &7218638772378715555
